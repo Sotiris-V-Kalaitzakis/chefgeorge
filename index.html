@@ -54,7 +54,11 @@ nav.links a:hover{opacity:1}
 .lang-btn:hover{background:var(--ink);color:var(--paper)}
 
 /* hero — evening */
-.hero{background:linear-gradient(180deg,rgba(18,24,20,.82) 0%,rgba(23,30,25,.86) 55%,rgba(27,36,32,.92) 100%),url('images/uploads/gallery-05.jpg') center 40%/cover no-repeat;color:var(--linen);padding:clamp(90px,14vh,150px) 0 clamp(80px,12vh,130px);position:relative;overflow:hidden}
+.hero{background:#161e1a;color:var(--linen);padding:clamp(90px,14vh,150px) 0 clamp(80px,12vh,130px);position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('images/uploads/gallery-05.jpg') center 40%/cover no-repeat;animation:kenburns 24s ease-in-out infinite alternate}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,20,.82) 0%,rgba(23,30,25,.86) 55%,rgba(27,36,32,.92) 100%)}
+.hero .wrap{position:relative;z-index:2}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.09)}}
 .hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-160px;top:-180px;background:radial-gradient(circle,rgba(198,151,63,.16),transparent 65%)}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--honey-soft)}
 .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(52px,9vw,104px);line-height:1.02;margin:22px 0 8px}
@@ -175,10 +179,55 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.on{opacity:1;transform:none}
+
+/* marquee */
+.marquee{background:var(--ink);border-top:1px solid var(--line-light);border-bottom:1px solid var(--line-light);overflow:hidden;padding:16px 0}
+.marq-track{display:flex;gap:56px;width:max-content;animation:marq 36s linear infinite}
+.marq-item{font-family:var(--display);font-style:italic;font-size:19px;color:var(--honey-soft);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marq-item::after{content:"·";color:rgba(243,241,234,.35)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* wizard — σχεδίασε τη βραδιά σου */
+.plan-sec{background:var(--linen)}
+.plan-card{border:1px solid var(--line);background:var(--paper);padding:clamp(26px,4.5vw,48px);position:relative}
+.plan-card::after{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
+.plan-q{margin-bottom:30px;position:relative;z-index:1}
+.plan-q .q-label{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.plan-q .q-num{font-family:var(--display);font-style:italic;font-size:22px;color:var(--honey);letter-spacing:0}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:10px 22px;font-size:14px;font-weight:600;background:var(--paper);cursor:pointer;font-family:var(--body);color:var(--ink);transition:all .18s}
+.pill:hover{border-color:var(--honey)}
+.pill.sel{background:var(--ink);color:var(--linen);border-color:var(--ink);transform:scale(1.04)}
+.plan-date{border:1px solid var(--line);background:var(--paper);padding:11px 18px;font-family:var(--body);font-size:14px;color:var(--ink);border-radius:999px}
+.plan-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;position:relative;z-index:1}
+.btn-wa{background:#25d366;color:#0b2b16}
+.btn-wa:hover{box-shadow:0 6px 24px rgba(37,211,102,.35)}
+.btn-dark{background:var(--ink);color:var(--linen)}
+.plan-hint{font-size:13px;color:rgba(27,36,32,.55);margin-top:14px;position:relative;z-index:1}
+
+/* FAQ */
+.faq-sec{background:var(--paper)}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 4px;font-weight:700;font-size:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .plus{font-family:var(--display);font-size:26px;color:var(--honey);transition:transform .3s;flex:none;line-height:1}
+.faq details[open] summary .plus{transform:rotate(45deg)}
+.faq .a{padding:0 4px 22px;color:rgba(27,36,32,.72);font-size:15px;max-width:680px}
+
+/* floating whatsapp */
+.wa-float{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;z-index:70;box-shadow:0 8px 28px rgba(0,0,0,.28);opacity:0;transform:translateY(16px) scale(.8);pointer-events:none;transition:opacity .35s,transform .35s}
+.wa-float.show{opacity:1;transform:none;pointer-events:auto}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:wapulse 2.4s ease-out infinite}
+@keyframes wapulse{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.45);opacity:0}100%{opacity:0}}
+@media(max-width:720px){.wa-float{right:14px;bottom:14px}}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  .btn:hover,.channel:hover{transform:none}
+  .btn:hover,.channel:hover,.pill.sel{transform:none}
+  .hero-bg,.marq-track,.wa-float::after{animation:none}
 }
 :focus-visible{outline:2px solid var(--honey);outline-offset:3px}
 </style>
@@ -194,7 +243,7 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
       <a href="#how"><span class="el">Πώς λειτουργεί</span><span class="en">How it works</span></a>
       <a href="#menus"><span class="el">Μενού</span><span class="en">Menus</span></a>
       <a href="#gallery"><span class="el">Gallery</span><span class="en">Gallery</span></a>
-      <a href="#coverage"><span class="el">Περιοχές</span><span class="en">Where we cook</span></a>
+      <a href="#plan"><span class="el">Κράτηση</span><span class="en">Book</span></a>
       <a href="#contact"><span class="el">Επικοινωνία</span><span class="en">Contact</span></a>
     </nav>
     <button class="lang-btn" id="langBtn" aria-label="Switch language">EN</button>
@@ -205,6 +254,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap">
     <div class="eyebrow"><span class="el">Private Chef · Κρήτη</span><span class="en">Private Chef · Crete</span></div>
     <h1>Chef <em>George</em></h1>
@@ -277,6 +328,19 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
     </div>
   </div>
 </section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marq-track" id="marqTrack">
+    <span class="marq-item"><span class="el">φρέσκο ψάρι ημέρας</span><span class="en">fresh catch of the day</span></span>
+    <span class="marq-item"><span class="el">θυμαρίσιο μέλι</span><span class="en">thyme honey</span></span>
+    <span class="marq-item"><span class="el">σταμναγκάθι</span><span class="en">stamnagathi greens</span></span>
+    <span class="marq-item"><span class="el">ελαιόλαδο Κρήτης</span><span class="en">Cretan olive oil</span></span>
+    <span class="marq-item"><span class="el">ξινομυζήθρα</span><span class="en">xinomizithra</span></span>
+    <span class="marq-item"><span class="el">ρακή &amp; μαντινάδες</span><span class="en">raki &amp; mantinades</span></span>
+    <span class="marq-item"><span class="el">βότανα του βουνού</span><span class="en">mountain herbs</span></span>
+  </div>
+</div>
 
 <!-- CAROUSEL -->
 <section class="carousel-sec" id="kitchen" style="display:none">
@@ -482,6 +546,103 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
   </div>
 </section>
 
+<!-- PLAN WIZARD -->
+<section id="plan" class="plan-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Ξεκινήστε εδώ</span><span class="en">Start here</span></div>
+      <h2>
+        <span class="el">Σχεδιάστε τη βραδιά σας</span>
+        <span class="en">Design your evening</span>
+      </h2>
+      <p>
+        <span class="el">Απαντήστε σε τέσσερις ερωτήσεις και στείλτε μας το αίτημά σας με ένα κουμπί — έτοιμο, χωρίς να γράψετε τίποτα.</span>
+        <span class="en">Answer four quick questions and send us your request with one tap — no typing needed.</span>
+      </p>
+    </div>
+    <div class="plan-card reveal">
+      <div class="plan-q">
+        <div class="q-label"><span class="q-num">α´</span><span class="el">Πόσα άτομα;</span><span class="en">How many guests?</span></div>
+        <div class="pills" data-group="people">
+          <button class="pill" data-val="2–4">2–4</button>
+          <button class="pill" data-val="5–8">5–8</button>
+          <button class="pill" data-val="9–14">9–14</button>
+          <button class="pill" data-val="15+">15+</button>
+        </div>
+      </div>
+      <div class="plan-q">
+        <div class="q-label"><span class="q-num">β´</span><span class="el">Ποιο μενού σας τραβάει;</span><span class="en">Which menu tempts you?</span></div>
+        <div class="pills" data-group="menu">
+          <button class="pill" data-val="Κρητικό Τραπέζι" data-val-en="The Cretan Table"><span class="el">Κρητικό Τραπέζι</span><span class="en">The Cretan Table</span></button>
+          <button class="pill" data-val="Μεσογειακή Θάλασσα" data-val-en="Mediterranean Sea"><span class="el">Μεσογειακή Θάλασσα</span><span class="en">Mediterranean Sea</span></button>
+          <button class="pill" data-val="Δείπνο Γευσιγνωσίας" data-val-en="Chef's Tasting"><span class="el">Δείπνο Γευσιγνωσίας</span><span class="en">Chef's Tasting</span></button>
+          <button class="pill" data-val="Δεν έχω αποφασίσει" data-val-en="Not sure yet"><span class="el">Δεν έχω αποφασίσει</span><span class="en">Not sure yet</span></button>
+        </div>
+      </div>
+      <div class="plan-q">
+        <div class="q-label"><span class="q-num">γ´</span><span class="el">Σε ποια περιοχή;</span><span class="en">Which area?</span></div>
+        <div class="pills" data-group="area">
+          <button class="pill" data-val="Ηράκλειο" data-val-en="Heraklion"><span class="el">Ηράκλειο</span><span class="en">Heraklion</span></button>
+          <button class="pill" data-val="Χανιά" data-val-en="Chania"><span class="el">Χανιά</span><span class="en">Chania</span></button>
+          <button class="pill" data-val="Ρέθυμνο" data-val-en="Rethymno"><span class="el">Ρέθυμνο</span><span class="en">Rethymno</span></button>
+          <button class="pill" data-val="Λασίθι" data-val-en="Lasithi"><span class="el">Λασίθι</span><span class="en">Lasithi</span></button>
+        </div>
+      </div>
+      <div class="plan-q">
+        <div class="q-label"><span class="q-num">δ´</span><span class="el">Πότε περίπου;</span><span class="en">When, roughly?</span></div>
+        <input type="date" class="plan-date" id="planDate">
+      </div>
+      <div class="plan-actions">
+        <a class="btn btn-wa" id="planWa" href="https://wa.me/306977293734" target="_blank" rel="noopener">
+          <span class="el">Στείλτε το στο WhatsApp</span><span class="en">Send it on WhatsApp</span>
+        </a>
+        <a class="btn btn-dark" href="tel:+306977293734">
+          <span class="el">Ή καλέστε μας</span><span class="en">Or call us</span>
+        </a>
+      </div>
+      <p class="plan-hint">
+        <span class="el">Το μήνυμα ετοιμάζεται αυτόματα με τις επιλογές σας — μπορείτε να το αλλάξετε πριν το στείλετε.</span>
+        <span class="en">Your message is pre-filled with your choices — you can edit it before sending.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Συχνές ερωτήσεις</span><span class="en">Frequently asked</span></div>
+      <h2>
+        <span class="el">Ό,τι ρωτούν όλοι πριν το πρώτο δείπνο</span>
+        <span class="en">What everyone asks before their first dinner</span>
+      </h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary><span><span class="el">Πόσες μέρες πριν πρέπει να κλείσω;</span><span class="en">How far in advance should I book?</span></span><span class="plus">+</span></summary>
+        <p class="a"><span class="el">Ιδανικά 5–7 μέρες πριν, ώστε να σχεδιάσουμε το μενού και να εξασφαλίσουμε τις καλύτερες πρώτες ύλες. Το καλοκαίρι οι ημερομηνίες γεμίζουν γρήγορα — αλλά ρωτήστε μας και για πιο κοντινές ημερομηνίες, συχνά βρίσκουμε λύση.</span><span class="en">Ideally 5–7 days ahead, so we can design the menu and source the best ingredients. Summer dates fill up fast — but do ask about short notice, we often find a way.</span></p>
+      </details>
+      <details>
+        <summary><span><span class="el">Τι χρειάζεται να έχω στην κουζίνα μου;</span><span class="en">What do I need in my kitchen?</span></span><span class="plus">+</span></summary>
+        <p class="a"><span class="el">Σχεδόν τίποτα — μια βασική κουζίνα με εστίες αρκεί. Φέρνουμε εμείς σκεύη, εργαλεία και ό,τι εξειδικευμένο χρειάζεται. Αν κάτι λείπει (π.χ. φούρνος σε σκάφος), το συζητάμε εκ των προτέρων και προσαρμόζουμε το μενού.</span><span class="en">Almost nothing — a basic kitchen with a hob is enough. We bring pans, tools and any specialist equipment. If something's missing (say, no oven on a boat), we discuss it beforehand and adapt the menu.</span></p>
+      </details>
+      <details>
+        <summary><span><span class="el">Καλύπτετε αλλεργίες και ειδικές διατροφές;</span><span class="en">Do you cater for allergies and special diets?</span></span><span class="plus">+</span></summary>
+        <p class="a"><span class="el">Φυσικά. Χορτοφαγικά, vegan, χωρίς γλουτένη, παιδικά πιάτα, αλλεργίες κάθε είδους — μας τα λέτε στην πρώτη κουβέντα και το μενού σχεδιάζεται γύρω τους, όχι παρά αυτά.</span><span class="en">Of course. Vegetarian, vegan, gluten-free, children's plates, allergies of any kind — tell us in our first chat and the menu is designed around them, not despite them.</span></p>
+      </details>
+      <details>
+        <summary><span><span class="el">Πόση ώρα διαρκεί ένα δείπνο;</span><span class="en">How long does a dinner last?</span></span><span class="plus">+</span></summary>
+        <p class="a"><span class="el">Ερχόμαστε 2–3 ώρες πριν το σερβίρισμα για την προετοιμασία. Το ίδιο το δείπνο κυλάει με τον δικό σας ρυθμό — συνήθως 2 έως 3 ώρες. Μετά καθαρίζουμε και αποχωρούμε διακριτικά.</span><span class="en">We arrive 2–3 hours before service to prepare. The dinner itself flows at your pace — usually 2 to 3 hours. Afterwards we clean up and slip away quietly.</span></p>
+      </details>
+      <details>
+        <summary><span><span class="el">Πώς γίνεται η πληρωμή;</span><span class="en">How does payment work?</span></span><span class="plus">+</span></summary>
+        <p class="a"><span class="el">Η χρέωση είναι ανά άτομο και περιλαμβάνει τα πάντα — υλικά, μαγείρεμα, σερβίρισμα, καθαριότητα. Επιβεβαιώνουμε το ακριβές ποσό μαζί με το μενού, χωρίς κρυφές χρεώσεις.</span><span class="en">Pricing is per person and all-inclusive — ingredients, cooking, service, clean-up. We confirm the exact amount together with the menu, no hidden costs.</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
@@ -523,6 +684,10 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 
 </main>
 
+<a class="wa-float" id="waFloat" href="https://wa.me/306977293734" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Προβολή φωτογραφίας">
   <button class="lb-close" id="lbClose" aria-label="Κλείσιμο">×</button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Προηγούμενη">‹</button>
@@ -551,6 +716,7 @@ function setLang(l){
   root.setAttribute('lang',l);
   btn.textContent=l==='el'?'EN':'ΕΛ';
   try{localStorage.setItem('lang',l)}catch(e){}
+  if(typeof updatePlanLink==='function')updatePlanLink();
 }
 btn.addEventListener('click',()=>setLang(root.getAttribute('data-lang')==='el'?'en':'el'));
 try{const saved=localStorage.getItem('lang');if(saved)setLang(saved)}catch(e){}
@@ -659,6 +825,58 @@ fetch('data/gallery.json',{cache:'no-store'})
     }
   })
   .catch(()=>{}); // αν αποτύχει (π.χ. τοπικό άνοιγμα αρχείου), μένουν τα placeholders
+
+// marquee — διπλασιασμός περιεχομένου για συνεχή κύλιση
+const marq=document.getElementById('marqTrack');
+if(marq)marq.innerHTML+=marq.innerHTML;
+
+// floating WhatsApp — εμφανίζεται μετά το hero
+const waFloat=document.getElementById('waFloat');
+window.addEventListener('scroll',()=>{
+  waFloat.classList.toggle('show',window.scrollY>480);
+},{passive:true});
+
+// wizard — σχεδίασε τη βραδιά σου
+const planSel={people:null,menu:null,menuEn:null,area:null,areaEn:null};
+document.querySelectorAll('.pills').forEach(group=>{
+  group.querySelectorAll('.pill').forEach(p=>{
+    p.addEventListener('click',()=>{
+      group.querySelectorAll('.pill').forEach(x=>x.classList.remove('sel'));
+      p.classList.add('sel');
+      const g=group.dataset.group;
+      planSel[g]=p.dataset.val;
+      if(p.dataset.valEn)planSel[g+'En']=p.dataset.valEn;
+      updatePlanLink();
+    });
+  });
+});
+document.getElementById('planDate').addEventListener('change',updatePlanLink);
+
+function updatePlanLink(){
+  const isEl=root.getAttribute('data-lang')==='el';
+  const date=document.getElementById('planDate').value;
+  let dateStr='';
+  if(date){
+    const d=new Date(date+'T12:00:00');
+    dateStr=d.toLocaleDateString(isEl?'el-GR':'en-GB',{day:'numeric',month:'long',year:'numeric'});
+  }
+  let msg;
+  if(isEl){
+    msg='Γεια σας! Θα ήθελα να κλείσω ένα ιδιωτικό δείπνο:\n'
+      +'\u{1F465} Άτομα: '+(planSel.people||'—')+'\n'
+      +'\u{1F37D} Μενού: '+(planSel.menu||'—')+'\n'
+      +'\u{1F4CD} Περιοχή: '+(planSel.area||'—')+'\n'
+      +'\u{1F4C5} Ημερομηνία: '+(dateStr||'—');
+  }else{
+    msg='Hello! I would like to book a private dinner:\n'
+      +'\u{1F465} Guests: '+(planSel.people||'—')+'\n'
+      +'\u{1F37D} Menu: '+(planSel.menuEn||planSel.menu||'—')+'\n'
+      +'\u{1F4CD} Area: '+(planSel.areaEn||planSel.area||'—')+'\n'
+      +'\u{1F4C5} Date: '+(dateStr||'—');
+  }
+  document.getElementById('planWa').href='https://wa.me/306977293734?text='+encodeURIComponent(msg);
+}
+updatePlanLink();
 
 // Netlify Identity — ολοκλήρωση πρόσκλησης admin και μετάβαση στο /admin
 if(window.netlifyIdentity){
