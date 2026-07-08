@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Πού αποθηκεύονται οι φωτογραφίες που ανεβάζεις
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+locale: "el"
+
+collections:
+  - name: "site"
+    label: "Περιεχόμενο Ιστοσελίδας"
+    files:
+      - name: "gallery"
+        label: "📸 Gallery — Φωτογραφίες"
+        file: "data/gallery.json"
+        description: "Πρόσθεσε, αφαίρεσε ή άλλαξε σειρά στις φωτογραφίες της gallery. Πάτησε 'Publish' για να δημοσιευτούν."
+        fields:
+          - label: "Φωτογραφίες"
+            name: "images"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - label: "Εικόνα"
+                name: "image"
+                widget: "image"
+                hint: "Προτεινόμενο μέγεθος: έως 2000px πλάτος, μορφή JPG"
+              - label: "Περιγραφή (προαιρετική)"
+                name: "alt"
+                widget: "string"
+                required: false
+                hint: "Π.χ. 'Δείπνο σε βίλα στα Χανιά' — βοηθάει στο Google"

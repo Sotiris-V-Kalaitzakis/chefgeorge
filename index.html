@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="el" data-lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef George — Private Chef στην Κρήτη | Private Chef in Crete</title>
+<meta name="description" content="Ιδιωτικά τραπέζια σε βίλες και σπίτια σε όλη την Κρήτη. Ο Chef George αναλαμβάνει μενού, προμήθειες, μαγείρεμα και σερβίρισμα. Private dining across Crete.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+:root{
+  --ink:#1b2420;          /* dark cypress */
+  --ink-soft:#27332d;
+  --paper:#fbfaf5;        /* salt white */
+  --linen:#f1efe7;
+  --olive:#6e7a54;
+  --honey:#c6973f;
+  --honey-soft:#dcb96f;
+  --sea:#2e5e5a;
+  --line:rgba(27,36,32,.16);
+  --line-light:rgba(243,241,234,.22);
+  --display:'Cormorant Garamond',Georgia,serif;
+  --body:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* language switching */
+html[data-lang="el"] .en{display:none !important}
+html[data-lang="en"] .el{display:none !important}
+
+/* ——— signature: menu-cover frame ——— */
+.frame{position:fixed;inset:14px;border:1px solid var(--line);pointer-events:none;z-index:60}
+.frame::after{content:"";position:absolute;inset:4px;border:1px solid var(--line)}
+@media(max-width:720px){.frame{inset:8px}.frame::after{display:none}}
+
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,6vw,64px)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(24px,6vw,64px);max-width:1080px;margin:0 auto}
+.monogram{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.04em;text-decoration:none}
+.monogram em{font-style:italic;color:var(--honey)}
+nav.links{display:flex;gap:26px}
+nav.links a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);opacity:.75;transition:opacity .2s}
+nav.links a:hover{opacity:1}
+@media(max-width:880px){nav.links{display:none}}
+.lang-btn{font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:.1em;background:none;border:1px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer;color:var(--ink);transition:background .2s,color .2s}
+.lang-btn:hover{background:var(--ink);color:var(--paper)}
+
+/* hero — evening */
+.hero{background:linear-gradient(180deg,rgba(18,24,20,.82) 0%,rgba(23,30,25,.86) 55%,rgba(27,36,32,.92) 100%),url('images/uploads/gallery-05.jpg') center 40%/cover no-repeat;color:var(--linen);padding:clamp(90px,14vh,150px) 0 clamp(80px,12vh,130px);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-160px;top:-180px;background:radial-gradient(circle,rgba(198,151,63,.16),transparent 65%)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--honey-soft)}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(52px,9vw,104px);line-height:1.02;margin:22px 0 8px}
+.hero h1 em{font-style:italic;color:var(--honey-soft)}
+.hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(20px,2.6vw,27px);color:rgba(243,241,234,.85);max-width:560px}
+.hero p.lede{margin:26px 0 38px;max-width:520px;color:rgba(243,241,234,.72);font-size:15.5px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.04em;padding:14px 26px;border-radius:999px;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-honey{background:var(--honey);color:#181c15}
+.btn-honey:hover{box-shadow:0 6px 24px rgba(198,151,63,.35)}
+.btn-ghost{border:1px solid var(--line-light);color:var(--linen)}
+.btn-ghost:hover{background:rgba(243,241,234,.08)}
+.hero-note{margin-top:34px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,241,234,.5)}
+
+/* section base */
+section{padding:clamp(72px,10vh,110px) 0}
+.sec-head{margin-bottom:clamp(40px,6vh,60px)}
+.sec-head .eyebrow{color:var(--olive)}
+.sec-head h2{font-family:var(--display);font-weight:500;font-size:clamp(34px,4.6vw,52px);line-height:1.1;margin-top:14px}
+.sec-head p{margin-top:14px;max-width:640px;color:rgba(27,36,32,.72)}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--paper);padding:30px 26px 34px}
+.step .num{font-family:var(--display);font-style:italic;font-size:30px;color:var(--honey)}
+.step h3{font-size:16px;font-weight:700;margin:14px 0 8px}
+.step p{font-size:14px;color:rgba(27,36,32,.7)}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.steps{grid-template-columns:1fr}}
+
+/* menus — the tasting card */
+.menus-sec{background:var(--ink);color:var(--linen)}
+.menus-sec .sec-head .eyebrow{color:var(--honey-soft)}
+.menus-sec .sec-head p{color:rgba(243,241,234,.7)}
+.menu-card{border:1px solid var(--line-light);position:relative;padding:clamp(30px,5vw,56px)}
+.menu-card::after{content:"";position:absolute;inset:8px;border:1px solid var(--line-light);pointer-events:none}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,52px)}
+@media(max-width:860px){.menu-grid{grid-template-columns:1fr}}
+.menu h3{font-family:var(--display);font-weight:600;font-size:26px;color:var(--honey-soft)}
+.menu .desc{margin:12px 0 18px;font-size:14.5px;color:rgba(243,241,234,.72)}
+.menu .course-label{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,241,234,.45);margin:16px 0 4px}
+.menu ul{list-style:none;font-size:14px}
+.menu li{padding:6px 0;border-bottom:1px dotted var(--line-light);color:rgba(243,241,234,.85)}
+.menu li:last-child{border-bottom:none}
+.menu-note{margin-top:36px;text-align:center;font-family:var(--display);font-style:italic;font-size:20px;color:rgba(243,241,234,.8)}
+.menu-note strong{color:var(--honey-soft);font-weight:600}
+
+/* carousel */
+.carousel-sec{background:var(--linen);padding-bottom:clamp(72px,10vh,110px)}
+.carousel{position:relative;overflow:hidden;border:1px solid var(--line)}
+.car-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.car-slide{flex:0 0 100%;aspect-ratio:16/9;max-height:520px}
+.car-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:none;background:rgba(27,36,32,.55);color:var(--linen);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2}
+.car-btn:hover{background:rgba(27,36,32,.85)}
+.car-prev{left:16px}.car-next{right:16px}
+.car-dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:2}
+.car-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(243,241,234,.45);cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.car-dot.on{background:var(--honey);transform:scale(1.25)}
+@media(max-width:640px){.car-slide{aspect-ratio:4/3}.car-btn{width:38px;height:38px}}
+@media(prefers-reduced-motion:reduce){.car-track{transition:none}}
+
+/* gallery */
+.gallery-sec{background:var(--paper)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.gallery{grid-template-columns:repeat(2,1fr);gap:8px}}
+.gallery figure{position:relative;aspect-ratio:1/1;overflow:hidden;background:linear-gradient(150deg,#e6e2d4,#d7d3c3);border:1px solid var(--line);cursor:pointer}
+.gallery figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(27,36,32,.4)}
+.gallery .ph svg{width:34px;height:34px;stroke:currentColor}
+.gallery .ph span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+@media(prefers-reduced-motion:reduce){.gallery figure:hover img{transform:none}}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(18,24,20,.94);z-index:100;display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:86vh;object-fit:contain;border:1px solid var(--line-light)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--linen);font-size:34px;cursor:pointer;line-height:1;padding:6px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid var(--line-light);color:var(--linen);width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer;transition:background .2s}
+.lb-nav:hover{background:rgba(243,241,234,.12)}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-count{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:rgba(243,241,234,.6);font-size:13px;letter-spacing:.14em}
+
+/* included */
+.included{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 40px}
+@media(max-width:820px){.included{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.included{grid-template-columns:1fr}}
+.inc{display:flex;gap:14px;align-items:flex-start}
+.inc .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--honey);margin-top:8px}
+.inc h3{font-size:15.5px;font-weight:700}
+.inc p{font-size:14px;color:rgba(27,36,32,.7);margin-top:4px}
+
+/* coverage */
+.coverage{background:var(--paper);border-top:1px solid var(--line)}
+.regions{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.region{border:1px solid var(--line);border-radius:999px;padding:10px 22px;font-size:14px;font-weight:600;background:var(--paper)}
+.coverage .note{margin-top:26px;font-size:14px;color:rgba(27,36,32,.65);max-width:620px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:920px){.contact-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.contact-grid{grid-template-columns:1fr}}
+.channel{border:1px solid var(--line);padding:26px 22px;text-decoration:none;display:block;transition:border-color .2s,transform .15s;background:var(--paper)}
+.channel:hover{border-color:var(--honey);transform:translateY(-2px)}
+.channel .label{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+.channel .value{font-family:var(--display);font-size:22px;font-weight:600;margin-top:10px}
+.channel .hint{font-size:13px;color:rgba(27,36,32,.6);margin-top:6px}
+
+/* footer */
+footer{background:var(--ink);color:rgba(243,241,234,.6);padding:44px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .fmono{font-family:var(--display);font-size:20px;color:var(--linen)}
+footer .fmono em{font-style:italic;color:var(--honey-soft)}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover,.channel:hover{transform:none}
+}
+:focus-visible{outline:2px solid var(--honey);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<div class="frame" aria-hidden="true"></div>
+
+<header>
+  <div class="nav">
+    <a class="monogram" href="#top">Chef <em>George</em></a>
+    <nav class="links" aria-label="Main">
+      <a href="#how"><span class="el">Πώς λειτουργεί</span><span class="en">How it works</span></a>
+      <a href="#menus"><span class="el">Μενού</span><span class="en">Menus</span></a>
+      <a href="#gallery"><span class="el">Gallery</span><span class="en">Gallery</span></a>
+      <a href="#coverage"><span class="el">Περιοχές</span><span class="en">Where we cook</span></a>
+      <a href="#contact"><span class="el">Επικοινωνία</span><span class="en">Contact</span></a>
+    </nav>
+    <button class="lang-btn" id="langBtn" aria-label="Switch language">EN</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="el">Private Chef · Κρήτη</span><span class="en">Private Chef · Crete</span></div>
+    <h1>Chef <em>George</em></h1>
+    <p class="sub">
+      <span class="el">Το τραπέζι έρχεται σε εσάς.</span>
+      <span class="en">The table comes to you.</span>
+    </p>
+    <p class="lede">
+      <span class="el">Ιδιωτικά δείπνα σε βίλες, σπίτια και εξοχικά σε όλη την Κρήτη. Εμείς αναλαμβάνουμε τα πάντα — μενού, προμήθειες, μαγείρεμα, σερβίρισμα και καθαριότητα. Εσείς απλώς κάθεστε στο τραπέζι.</span>
+      <span class="en">Private dinners in villas, homes and holiday houses across Crete. We take care of everything — menu, sourcing, cooking, service and clean-up. You simply take your seat.</span>
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-honey" href="https://wa.me/306977293734" target="_blank" rel="noopener">
+        <span class="el">Μήνυμα στο WhatsApp</span><span class="en">Message on WhatsApp</span>
+      </a>
+      <a class="btn btn-ghost" href="tel:+306977293734">
+        <span class="el">Καλέστε μας</span><span class="en">Call us</span>
+      </a>
+    </div>
+    <div class="hero-note">
+      <span class="el">Χανιά · Ρέθυμνο · Ηράκλειο · Λασίθι</span>
+      <span class="en">Chania · Rethymno · Heraklion · Lasithi</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Πώς λειτουργεί</span><span class="en">How it works</span></div>
+      <h2>
+        <span class="el">Από ένα μήνυμα, σε ένα αξέχαστο δείπνο</span>
+        <span class="en">From one message to an unforgettable dinner</span>
+      </h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="num">α´</div>
+        <h3><span class="el">Μιλάμε</span><span class="en">We talk</span></h3>
+        <p>
+          <span class="el">Στείλτε μας ημερομηνία, τοποθεσία και αριθμό ατόμων. Συζητάμε προτιμήσεις, αλλεργίες και το ύφος της βραδιάς.</span>
+          <span class="en">Send us your date, location and number of guests. We discuss preferences, allergies and the style of the evening.</span>
+        </p>
+      </div>
+      <div class="step">
+        <div class="num">β´</div>
+        <h3><span class="el">Σχεδιάζουμε το μενού</span><span class="en">We design the menu</span></h3>
+        <p>
+          <span class="el">Ο σεφ συνθέτει ένα μενού αποκλειστικά για εσάς, με φρέσκα κρητικά προϊόντα και εποχιακές πρώτες ύλες.</span>
+          <span class="en">The chef composes a menu exclusively for you, built on fresh Cretan produce and seasonal ingredients.</span>
+        </p>
+      </div>
+      <div class="step">
+        <div class="num">γ´</div>
+        <h3><span class="el">Ερχόμαστε σε εσάς</span><span class="en">We come to you</span></h3>
+        <p>
+          <span class="el">Φέρνουμε ό,τι χρειάζεται — υλικά, εξοπλισμό, σερβίτσια. Μαγειρεύουμε στην κουζίνα σας και σερβίρουμε πιάτο-πιάτο.</span>
+          <span class="en">We bring everything needed — ingredients, equipment, tableware. We cook in your kitchen and serve course by course.</span>
+        </p>
+      </div>
+      <div class="step">
+        <div class="num">δ´</div>
+        <h3><span class="el">Φεύγουμε αθόρυβα</span><span class="en">We leave quietly</span></h3>
+        <p>
+          <span class="el">Η κουζίνα παραδίδεται όπως τη βρήκαμε. Εσείς μένετε με την παρέα σας — και με μια βραδιά που θα θυμάστε.</span>
+          <span class="en">The kitchen is left exactly as we found it. You stay with your company — and with an evening to remember.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAROUSEL -->
+<section class="carousel-sec" id="kitchen" style="display:none">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Από την κουζίνα μας</span><span class="en">From our kitchen</span></div>
+      <h2>
+        <span class="el">Πιάτα που σερβίραμε πρόσφατα</span>
+        <span class="en">Dishes we served recently</span>
+      </h2>
+    </div>
+    <div class="carousel reveal" id="carousel">
+      <div class="car-track" id="carTrack"></div>
+      <button class="car-btn car-prev" id="carPrev" aria-label="Προηγούμενη φωτογραφία">‹</button>
+      <button class="car-btn car-next" id="carNext" aria-label="Επόμενη φωτογραφία">›</button>
+      <div class="car-dots" id="carDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENUS -->
+<section id="menus" class="menus-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Τα Μενού μας</span><span class="en">Our Menus</span></div>
+      <h2>
+        <span class="el">Τρεις τρόποι να στρώσουμε το τραπέζι</span>
+        <span class="en">Three ways to set the table</span>
+      </h2>
+      <p>
+        <span class="el">Τα παρακάτω μενού είναι ενδεικτικά — κάθε μενού σχεδιάζεται από την αρχή και προσαρμόζεται πλήρως στις ανάγκες, τις προτιμήσεις και τις διατροφικές ιδιαιτερότητες κάθε πελάτη.</span>
+        <span class="en">The menus below are indicative — every menu is designed from scratch and fully tailored to each client's needs, preferences and dietary requirements.</span>
+      </p>
+    </div>
+    <div class="menu-card reveal">
+      <div class="menu-grid">
+
+        <div class="menu">
+          <h3><span class="el">Κρητικό Τραπέζι</span><span class="en">The Cretan Table</span></h3>
+          <p class="desc">
+            <span class="el">Οικογενειακό στιλ, με πιάτα στο κέντρο του τραπεζιού. Η Κρήτη όπως τρώει στο σπίτι της.</span>
+            <span class="en">Family style, with sharing plates at the centre of the table. Crete the way it eats at home.</span>
+          </p>
+          <div class="course-label"><span class="el">Για αρχή</span><span class="en">To begin</span></div>
+          <ul>
+            <li><span class="el">Ντάκος με ξινομυζήθρα &amp; ντομάτα</span><span class="en">Dakos with xinomizithra &amp; tomato</span></li>
+            <li><span class="el">Καλιτσούνια με κρητικά τυριά</span><span class="en">Kalitsounia with Cretan cheeses</span></li>
+            <li><span class="el">Απάκι με θυμαρίσιο μέλι</span><span class="en">Apaki with thyme honey</span></li>
+          </ul>
+          <div class="course-label"><span class="el">Κυρίως</span><span class="en">Mains</span></div>
+          <ul>
+            <li><span class="el">Αρνάκι σιγομαγειρεμένο με σταμναγκάθι</span><span class="en">Slow-cooked lamb with stamnagathi greens</span></li>
+            <li><span class="el">Γαμοπίλαφο με στάκα</span><span class="en">Traditional gamopilafo with staka</span></li>
+            <li><span class="el">Χόρτα εποχής &amp; οφτές πατάτες</span><span class="en">Seasonal wild greens &amp; baked potatoes</span></li>
+          </ul>
+          <div class="course-label"><span class="el">Για το τέλος</span><span class="en">To finish</span></div>
+          <ul>
+            <li><span class="el">Σφακιανή πίτα με μέλι &amp; ρακή</span><span class="en">Sfakian pie with honey &amp; raki</span></li>
+          </ul>
+        </div>
+
+        <div class="menu">
+          <h3><span class="el">Μεσογειακή Θάλασσα</span><span class="en">Mediterranean Sea</span></h3>
+          <p class="desc">
+            <span class="el">Φρέσκο ψάρι και θαλασσινά ημέρας από τα κρητικά νερά, σε μενού πολλών πιάτων.</span>
+            <span class="en">Fresh fish and day-boat seafood from Cretan waters, in a multi-course menu.</span>
+          </p>
+          <div class="course-label"><span class="el">Για αρχή</span><span class="en">To begin</span></div>
+          <ul>
+            <li><span class="el">Καρπάτσιο λαβράκι με εσπεριδοειδή</span><span class="en">Sea bass carpaccio with citrus</span></li>
+            <li><span class="el">Χταπόδι σχάρας με φάβα</span><span class="en">Grilled octopus with fava</span></li>
+            <li><span class="el">Γαρίδες σαγανάκι</span><span class="en">Shrimp saganaki</span></li>
+          </ul>
+          <div class="course-label"><span class="el">Κυρίως</span><span class="en">Mains</span></div>
+          <ul>
+            <li><span class="el">Ψάρι ημέρας στη σχάρα με λαδολέμονο</span><span class="en">Grilled catch of the day, ladolemono</span></li>
+            <li><span class="el">Κριθαρότο θαλασσινών</span><span class="en">Seafood kritharoto (orzo)</span></li>
+            <li><span class="el">Σαλάτα με κρητικά χόρτα &amp; ξύγαλο</span><span class="en">Cretan greens salad with xygalo</span></li>
+          </ul>
+          <div class="course-label"><span class="el">Για το τέλος</span><span class="en">To finish</span></div>
+          <ul>
+            <li><span class="el">Γιαούρτι με φρούτα εποχής &amp; μέλι</span><span class="en">Yoghurt with seasonal fruit &amp; honey</span></li>
+          </ul>
+        </div>
+
+        <div class="menu">
+          <h3><span class="el">Δείπνο Γευσιγνωσίας</span><span class="en">Chef's Tasting</span></h3>
+          <p class="desc">
+            <span class="el">Δημιουργική υψηλή κουζίνα σε πολλαπλά πιάτα, σερβιρισμένα και παρουσιασμένα από τον σεφ.</span>
+            <span class="en">Creative fine dining across multiple courses, plated and presented by the chef himself.</span>
+          </p>
+          <div class="course-label"><span class="el">Ενδεικτικά πιάτα</span><span class="en">Sample courses</span></div>
+          <ul>
+            <li><span class="el">Amuse-bouche με κρητικά αρώματα</span><span class="en">Amuse-bouche with Cretan aromas</span></li>
+            <li><span class="el">Ταρτάρ ψαριού με κρίταμο</span><span class="en">Fish tartare with sea fennel</span></li>
+            <li><span class="el">Ραβιόλι μυζήθρας με σάλτσα λεμονιού</span><span class="en">Mizithra ravioli, lemon sauce</span></li>
+            <li><span class="el">Ψάρι ή κρέας σε σύγχρονη ανάγνωση</span><span class="en">Fish or meat, a modern reading</span></li>
+            <li><span class="el">Pre-dessert με βότανα του βουνού</span><span class="en">Pre-dessert with mountain herbs</span></li>
+            <li><span class="el">Επιδόρπιο υπογραφής του σεφ</span><span class="en">The chef's signature dessert</span></li>
+          </ul>
+          <div class="course-label"><span class="el">Προαιρετικά</span><span class="en">Optional</span></div>
+          <ul>
+            <li><span class="el">Προτάσεις κρασιών για κάθε πιάτο</span><span class="en">Wine pairing for every course</span></li>
+          </ul>
+        </div>
+
+      </div>
+      <p class="menu-note">
+        <span class="el"><strong>Κάθε μενού προσαρμόζεται στις ανάγκες σας.</strong> Χορτοφαγικά, vegan, χωρίς γλουτένη, παιδικά μενού, γάμοι και μεγάλες ομάδες — πείτε μας τι ονειρεύεστε και θα το μαγειρέψουμε.</span>
+        <span class="en"><strong>Every menu is tailored to your needs.</strong> Vegetarian, vegan, gluten-free, children's menus, weddings and large groups — tell us what you dream of and we'll cook it.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Gallery</div>
+      <h2>
+        <span class="el">Στιγμές από το τραπέζι</span>
+        <span class="en">Moments from the table</span>
+      </h2>
+      <p>
+        <span class="el">Πιάτα, βραδιές και τοπία από δείπνα σε όλη την Κρήτη.</span>
+        <span class="en">Dishes, evenings and views from dinners across Crete.</span>
+      </p>
+    </div>
+    <div class="gallery reveal" id="galleryGrid">
+      <!-- Οι φωτογραφίες φορτώνονται αυτόματα από το data/gallery.json (μέσω του admin panel).
+           Τα παρακάτω placeholders εμφανίζονται μόνο όσο η gallery είναι άδεια. -->
+      <figure><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-4 5 5"/></svg><span><span class="el">Φωτογραφία 1</span><span class="en">Photo 1</span></span></div></figure>
+      <figure><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-4 5 5"/></svg><span><span class="el">Φωτογραφία 2</span><span class="en">Photo 2</span></span></div></figure>
+      <figure><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-4 5 5"/></svg><span><span class="el">Φωτογραφία 3</span><span class="en">Photo 3</span></span></div></figure>
+      <figure><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-4 5 5"/></svg><span><span class="el">Φωτογραφία 4</span><span class="en">Photo 4</span></span></div></figure>
+      <figure><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-4 5 5"/></svg><span><span class="el">Φωτογραφία 5</span><span class="en">Photo 5</span></span></div></figure>
+      <figure><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 4-4 5 5"/></svg><span><span class="el">Φωτογραφία 6</span><span class="en">Photo 6</span></span></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section id="included">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Όλα περιλαμβάνονται</span><span class="en">Everything included</span></div>
+      <h2>
+        <span class="el">Εσείς δεν σηκώνετε ούτε πιρούνι</span>
+        <span class="en">You won't lift a finger</span>
+      </h2>
+    </div>
+    <div class="included reveal">
+      <div class="inc"><div class="dot"></div><div>
+        <h3><span class="el">Σχεδιασμός μενού</span><span class="en">Menu design</span></h3>
+        <p><span class="el">Προσαρμοσμένο σε γούστα, αλλεργίες και διατροφικές ανάγκες.</span><span class="en">Tailored to tastes, allergies and dietary needs.</span></p>
+      </div></div>
+      <div class="inc"><div class="dot"></div><div>
+        <h3><span class="el">Προμήθειες</span><span class="en">Sourcing</span></h3>
+        <p><span class="el">Φρέσκες πρώτες ύλες από τοπικούς παραγωγούς και την αγορά της ημέρας.</span><span class="en">Fresh ingredients from local producers and the day's market.</span></p>
+      </div></div>
+      <div class="inc"><div class="dot"></div><div>
+        <h3><span class="el">Προετοιμασία &amp; μαγείρεμα</span><span class="en">Prep &amp; cooking</span></h3>
+        <p><span class="el">Όλα γίνονται επί τόπου, στην κουζίνα του χώρου σας.</span><span class="en">Everything is prepared on-site, in your own kitchen.</span></p>
+      </div></div>
+      <div class="inc"><div class="dot"></div><div>
+        <h3><span class="el">Σερβίρισμα</span><span class="en">Table service</span></h3>
+        <p><span class="el">Πιάτο-πιάτο, με τον ρυθμό που ταιριάζει στη βραδιά σας.</span><span class="en">Course by course, at the pace that suits your evening.</span></p>
+      </div></div>
+      <div class="inc"><div class="dot"></div><div>
+        <h3><span class="el">Καθαριότητα</span><span class="en">Clean-up</span></h3>
+        <p><span class="el">Η κουζίνα παραδίδεται όπως τη βρήκαμε — ή καλύτερη.</span><span class="en">The kitchen is left as we found it — or better.</span></p>
+      </div></div>
+      <div class="inc"><div class="dot"></div><div>
+        <h3><span class="el">Ευελιξία</span><span class="en">Flexibility</span></h3>
+        <p><span class="el">Μεσημεριανά, δείπνα, brunch, μπάρμπεκιου — ό,τι ζητάει η περίσταση.</span><span class="en">Lunches, dinners, brunches, barbecues — whatever the occasion calls for.</span></p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage" class="coverage">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Περιοχές εξυπηρέτησης</span><span class="en">Where we cook</span></div>
+      <h2>
+        <span class="el">Σε όλη την Κρήτη</span>
+        <span class="en">All across Crete</span>
+      </h2>
+    </div>
+    <div class="regions reveal">
+      <div class="region"><span class="el">Ηράκλειο</span><span class="en">Heraklion</span></div>
+      <div class="region"><span class="el">Χανιά</span><span class="en">Chania</span></div>
+      <div class="region"><span class="el">Ρέθυμνο</span><span class="en">Rethymno</span></div>
+      <div class="region"><span class="el">Λασίθι</span><span class="en">Lasithi</span></div>
+      <div class="region"><span class="el">Ελαφονήσι έως Σητεία</span><span class="en">Elafonisi to Sitia</span></div>
+    </div>
+    <p class="note reveal">
+      <span class="el">Βίλες, εξοχικά, ξενοδοχεία, σκάφη ή το σπίτι σας — όπου υπάρχει κουζίνα και καλή παρέα, ερχόμαστε. Για απομακρυσμένες τοποθεσίες ενδέχεται να υπάρχει μικρή χρέωση μετακίνησης, την οποία επιβεβαιώνουμε εκ των προτέρων.</span>
+      <span class="en">Villas, holiday homes, hotels, boats or your own house — wherever there's a kitchen and good company, we'll be there. Remote locations may carry a small travel fee, always confirmed in advance.</span>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Επικοινωνία</span><span class="en">Contact</span></div>
+      <h2>
+        <span class="el">Ας κλείσουμε ημερομηνία</span>
+        <span class="en">Let's set a date</span>
+      </h2>
+      <p>
+        <span class="el">Απαντάμε καθημερινά. Πείτε μας ημερομηνία, τοποθεσία και πόσα άτομα — και αναλαμβάνουμε από εκεί.</span>
+        <span class="en">We reply daily. Tell us your date, location and party size — we'll take it from there.</span>
+      </p>
+    </div>
+    <div class="contact-grid reveal">
+      <a class="channel" href="tel:+306977293734">
+        <div class="label"><span class="el">Τηλέφωνο</span><span class="en">Phone</span></div>
+        <div class="value">+30 697 729 3734</div>
+        <div class="hint"><span class="el">Κλήσεις &amp; SMS</span><span class="en">Calls &amp; SMS</span></div>
+      </a>
+      <a class="channel" href="https://wa.me/306977293734" target="_blank" rel="noopener">
+        <div class="label">WhatsApp</div>
+        <div class="value"><span class="el">Στείλτε μήνυμα</span><span class="en">Send a message</span></div>
+        <div class="hint"><span class="el">Η πιο γρήγορη απάντηση</span><span class="en">Fastest reply</span></div>
+      </a>
+      <a class="channel" href="viber://chat?number=%2B306977293734">
+        <div class="label">Viber</div>
+        <div class="value"><span class="el">Στείλτε μήνυμα</span><span class="en">Send a message</span></div>
+        <div class="hint"><span class="el">Για κλήσεις &amp; μηνύματα</span><span class="en">Calls &amp; messages</span></div>
+      </a>
+      <a class="channel" href="https://instagram.com/chefgeorge.crete" target="_blank" rel="noopener">
+        <div class="label">Instagram</div>
+        <div class="value">@chefgeorge.crete</div>
+        <div class="hint"><span class="el">Δείτε πιάτα &amp; βραδιές</span><span class="en">See dishes &amp; evenings</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Προβολή φωτογραφίας">
+  <button class="lb-close" id="lbClose" aria-label="Κλείσιμο">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Προηγούμενη">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Επόμενη">›</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fmono">Chef <em>George</em></div>
+    <div>
+      <span class="el">Private Chef · Κρήτη, Ελλάδα · © 2026</span>
+      <span class="en">Private Chef · Crete, Greece · © 2026</span>
+      &nbsp;·&nbsp;<a href="/admin/" style="opacity:.55;text-decoration:none"><span class="el">Διαχείριση</span><span class="en">Admin</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// language toggle
+const btn=document.getElementById('langBtn');
+const root=document.documentElement;
+function setLang(l){
+  root.setAttribute('data-lang',l);
+  root.setAttribute('lang',l);
+  btn.textContent=l==='el'?'EN':'ΕΛ';
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+btn.addEventListener('click',()=>setLang(root.getAttribute('data-lang')==='el'?'en':'el'));
+try{const saved=localStorage.getItem('lang');if(saved)setLang(saved)}catch(e){}
+
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// gallery + carousel — φορτώνουν φωτογραφίες από το data/gallery.json (διαχείριση μέσω /admin)
+let galleryImages=[];
+let lbIndex=0;
+
+function openLightbox(i){
+  lbIndex=i;
+  const lb=document.getElementById('lightbox');
+  const img=document.getElementById('lbImg');
+  img.src=galleryImages[i].image;
+  img.alt=galleryImages[i].alt||'';
+  document.getElementById('lbCount').textContent=(i+1)+' / '+galleryImages.length;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbStep(d){
+  openLightbox((lbIndex+d+galleryImages.length)%galleryImages.length);
+}
+document.getElementById('lbClose').addEventListener('click',closeLightbox);
+document.getElementById('lbPrev').addEventListener('click',()=>lbStep(-1));
+document.getElementById('lbNext').addEventListener('click',()=>lbStep(1));
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')closeLightbox()});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')lbStep(-1);
+  if(e.key==='ArrowRight')lbStep(1);
+});
+
+// carousel
+let carIndex=0,carTimer=null,carCount=0;
+function carGo(i){
+  carIndex=(i+carCount)%carCount;
+  document.getElementById('carTrack').style.transform='translateX(-'+(carIndex*100)+'%)';
+  document.querySelectorAll('.car-dot').forEach((d,j)=>d.classList.toggle('on',j===carIndex));
+}
+function carAuto(){
+  clearInterval(carTimer);
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    carTimer=setInterval(()=>carGo(carIndex+1),4500);
+  }
+}
+
+fetch('data/gallery.json',{cache:'no-store'})
+  .then(r=>r.ok?r.json():null)
+  .then(d=>{
+    if(!d||!Array.isArray(d.images)||d.images.length===0)return; // κρατάμε τα placeholders
+    galleryImages=d.images;
+
+    // gallery grid
+    const grid=document.getElementById('galleryGrid');
+    grid.innerHTML='';
+    galleryImages.forEach((item,i)=>{
+      const fig=document.createElement('figure');
+      const img=document.createElement('img');
+      img.src=item.image;
+      img.alt=item.alt||'Chef George — private dining';
+      img.loading='lazy';
+      fig.appendChild(img);
+      fig.addEventListener('click',()=>openLightbox(i));
+      grid.appendChild(fig);
+    });
+
+    // carousel — οι πρώτες 8 φωτογραφίες
+    const slides=galleryImages.slice(0,8);
+    carCount=slides.length;
+    if(carCount>1){
+      const track=document.getElementById('carTrack');
+      const dots=document.getElementById('carDots');
+      slides.forEach((item,i)=>{
+        const s=document.createElement('div');s.className='car-slide';
+        const img=document.createElement('img');
+        img.src=item.image;img.alt=item.alt||'';img.loading=i===0?'eager':'lazy';
+        s.appendChild(img);track.appendChild(s);
+        const dot=document.createElement('button');dot.className='car-dot'+(i===0?' on':'');
+        dot.setAttribute('aria-label','Φωτογραφία '+(i+1));
+        dot.addEventListener('click',()=>{carGo(i);carAuto()});
+        dots.appendChild(dot);
+      });
+      document.getElementById('carPrev').addEventListener('click',()=>{carGo(carIndex-1);carAuto()});
+      document.getElementById('carNext').addEventListener('click',()=>{carGo(carIndex+1);carAuto()});
+      const car=document.getElementById('carousel');
+      car.addEventListener('mouseenter',()=>clearInterval(carTimer));
+      car.addEventListener('mouseleave',carAuto);
+      let tx=null;
+      car.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;clearInterval(carTimer)},{passive:true});
+      car.addEventListener('touchend',e=>{
+        if(tx===null)return;
+        const dx=e.changedTouches[0].clientX-tx;
+        if(Math.abs(dx)>40)carGo(carIndex+(dx<0?1:-1));
+        tx=null;carAuto();
+      },{passive:true});
+      document.getElementById('kitchen').style.display='';
+      carAuto();
+    }
+  })
+  .catch(()=>{}); // αν αποτύχει (π.χ. τοπικό άνοιγμα αρχείου), μένουν τα placeholders
+
+// Netlify Identity — ολοκλήρωση πρόσκλησης admin και μετάβαση στο /admin
+if(window.netlifyIdentity){
+  window.netlifyIdentity.on('init',user=>{
+    if(!user){window.netlifyIdentity.on('login',()=>{document.location.href='/admin/'})}
+  });
+}
+</script>
+</body>
+</html>
