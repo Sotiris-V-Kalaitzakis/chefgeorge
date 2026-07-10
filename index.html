@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chef George — Private Chef στην Κρήτη | Private Chef in Crete</title>
 <meta name="description" content="Ιδιωτικά τραπέζια σε βίλες και σπίτια σε όλη την Κρήτη. Ο Chef George αναλαμβάνει μενού, προμήθειες, μαγείρεμα και σερβίρισμα. Private dining across Crete.">
+<meta name="theme-color" content="#1b2420">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Chef George — Private Chef in Crete">
+<meta property="og:description" content="Private dinners in villas and homes across Crete. Menu, sourcing, cooking, service — all included.">
+<meta property="og:image" content="https://chef-george-crete.netlify.app/images/uploads/gallery-22.jpg">
+<meta property="og:url" content="https://chef-george-crete.netlify.app/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -43,9 +54,11 @@ img{max-width:100%}
 
 /* header */
 header{position:sticky;top:0;z-index:50;background:rgba(251,250,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(24px,6vw,64px);max-width:1080px;margin:0 auto}
-.monogram{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.04em;text-decoration:none}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:10px clamp(24px,6vw,64px);max-width:1080px;margin:0 auto}
+.monogram{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.04em;text-decoration:none;display:flex;align-items:center}
 .monogram em{font-style:italic;color:var(--honey)}
+.logo-img{height:56px;width:auto;display:block}
+@media(max-width:720px){.logo-img{height:46px}}
 nav.links{display:flex;gap:26px}
 nav.links a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);opacity:.75;transition:opacity .2s}
 nav.links a:hover{opacity:1}
@@ -55,7 +68,7 @@ nav.links a:hover{opacity:1}
 
 /* hero — evening */
 .hero{background:#161e1a;color:var(--linen);padding:clamp(90px,14vh,150px) 0 clamp(80px,12vh,130px);position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('images/uploads/gallery-05.jpg') center 40%/cover no-repeat;animation:kenburns 24s ease-in-out infinite alternate}
+.hero-bg{position:absolute;inset:0;background:url('images/uploads/gallery-22.jpg') center 62%/cover no-repeat;animation:kenburns 24s ease-in-out infinite alternate}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,20,.82) 0%,rgba(23,30,25,.86) 55%,rgba(27,36,32,.92) 100%)}
 .hero .wrap{position:relative;z-index:2}
 @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.09)}}
@@ -238,7 +251,7 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 
 <header>
   <div class="nav">
-    <a class="monogram" href="#top">Chef <em>George</em></a>
+    <a class="monogram" href="#top" aria-label="Chef George Crete"><img src="images/logo.png" alt="Chef George Crete" class="logo-img"></a>
     <nav class="links" aria-label="Main">
       <a href="#how"><span class="el">Πώς λειτουργεί</span><span class="en">How it works</span></a>
       <a href="#menus"><span class="el">Μενού</span><span class="en">Menus</span></a>
