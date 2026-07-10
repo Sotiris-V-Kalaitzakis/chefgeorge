@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chef George — Private Chef στην Κρήτη | Private Chef in Crete</title>
+<title>Chef George, Private Chef στην Κρήτη | Private Chef in Crete</title>
 <meta name="description" content="Ιδιωτικά τραπέζια σε βίλες και σπίτια σε όλη την Κρήτη. Ο Chef George αναλαμβάνει μενού, προμήθειες, μαγείρεμα και σερβίρισμα. Private dining across Crete.">
 <meta name="theme-color" content="#1b2420">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -11,8 +11,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta property="og:title" content="Chef George — Private Chef in Crete">
-<meta property="og:description" content="Private dinners in villas and homes across Crete. Menu, sourcing, cooking, service — all included.">
+<meta property="og:title" content="Chef George, Private Chef in Crete">
+<meta property="og:description" content="Private dinners in villas and homes across Crete. Menu, sourcing, cooking, service, all included.">
 <meta property="og:image" content="https://chef-george-crete.netlify.app/images/uploads/gallery-22.jpg">
 <meta property="og:url" content="https://chef-george-crete.netlify.app/">
 <meta property="og:type" content="website">
@@ -66,7 +66,7 @@ nav.links a:hover{opacity:1}
 .lang-btn{font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:.1em;background:none;border:1px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer;color:var(--ink);transition:background .2s,color .2s}
 .lang-btn:hover{background:var(--ink);color:var(--paper)}
 
-/* hero — evening */
+/* hero, evening */
 .hero{background:#161e1a;color:var(--linen);padding:clamp(90px,14vh,150px) 0 clamp(80px,12vh,130px);position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url('images/uploads/gallery-22.jpg') center 62%/cover no-repeat;animation:kenburns 24s ease-in-out infinite alternate}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,20,.82) 0%,rgba(23,30,25,.86) 55%,rgba(27,36,32,.92) 100%)}
@@ -103,7 +103,7 @@ section{padding:clamp(72px,10vh,110px) 0}
 @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.steps{grid-template-columns:1fr}}
 
-/* menus — the tasting card */
+/* menus, the tasting card */
 .menus-sec{background:var(--ink);color:var(--linen)}
 .menus-sec .sec-head .eyebrow{color:var(--honey-soft)}
 .menus-sec .sec-head p{color:rgba(243,241,234,.7)}
@@ -173,6 +173,11 @@ section{padding:clamp(72px,10vh,110px) 0}
 .region{border:1px solid var(--line);border-radius:999px;padding:10px 22px;font-size:14px;font-weight:600;background:var(--paper)}
 .coverage .note{margin-top:26px;font-size:14px;color:rgba(27,36,32,.65);max-width:620px}
 
+/* olive banner */
+.banner{background:linear-gradient(rgba(18,24,20,.38),rgba(18,24,20,.52)),url('images/olive-banner.jpg') center 62%/cover no-repeat;padding:clamp(90px,16vh,150px) 0;text-align:center}
+.banner blockquote{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(24px,3.6vw,40px);line-height:1.3;color:var(--linen);max-width:760px;margin:0 auto;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.banner .b-sub{margin-top:16px;font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--honey-soft)}
+
 /* contact */
 .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:920px){.contact-grid{grid-template-columns:1fr 1fr}}
@@ -200,7 +205,7 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 .marq-item::after{content:"·";color:rgba(243,241,234,.35)}
 @keyframes marq{to{transform:translateX(-50%)}}
 
-/* wizard — σχεδίασε τη βραδιά σου */
+/* wizard, σχεδίασε τη βραδιά σου */
 .plan-sec{background:var(--linen)}
 .plan-card{border:1px solid var(--line);background:var(--paper);padding:clamp(26px,4.5vw,48px);position:relative}
 .plan-card::after{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
@@ -220,6 +225,12 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 
 /* FAQ */
 .faq-sec{background:var(--paper)}
+.faq-wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(32px,5vw,60px);align-items:start}
+.faq-side{position:sticky;top:100px}
+.faq-side figure{position:relative;border:1px solid var(--line);padding:8px;background:var(--paper)}
+.faq-side img{width:100%;display:block}
+.faq-side figcaption{font-family:var(--display);font-style:italic;font-size:15px;color:rgba(27,36,32,.6);text-align:center;padding:12px 6px 4px}
+@media(max-width:900px){.faq-wrap{grid-template-columns:1fr}.faq-side{position:static;max-width:520px}}
 .faq{border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 4px;font-weight:700;font-size:16px}
@@ -277,8 +288,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
       <span class="en">The table comes to you.</span>
     </p>
     <p class="lede">
-      <span class="el">Ιδιωτικά δείπνα σε βίλες, σπίτια και εξοχικά σε όλη την Κρήτη. Εμείς αναλαμβάνουμε τα πάντα — μενού, προμήθειες, μαγείρεμα, σερβίρισμα και καθαριότητα. Εσείς απλώς κάθεστε στο τραπέζι.</span>
-      <span class="en">Private dinners in villas, homes and holiday houses across Crete. We take care of everything — menu, sourcing, cooking, service and clean-up. You simply take your seat.</span>
+      <span class="el">Ιδιωτικά δείπνα σε βίλες, σπίτια και εξοχικά σε όλη την Κρήτη. Εμείς αναλαμβάνουμε τα πάντα: μενού, προμήθειες, μαγείρεμα, σερβίρισμα και καθαριότητα. Εσείς απλώς κάθεστε στο τραπέζι.</span>
+      <span class="en">Private dinners in villas, homes and holiday houses across Crete. We take care of everything: menu, sourcing, cooking, service and clean-up. You simply take your seat.</span>
     </p>
     <div class="cta-row">
       <a class="btn btn-honey" href="https://wa.me/306983070234" target="_blank" rel="noopener">
@@ -326,16 +337,16 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
         <div class="num">γ´</div>
         <h3><span class="el">Ερχόμαστε σε εσάς</span><span class="en">We come to you</span></h3>
         <p>
-          <span class="el">Φέρνουμε ό,τι χρειάζεται — υλικά, εξοπλισμό, σερβίτσια. Μαγειρεύουμε στην κουζίνα σας και σερβίρουμε πιάτο-πιάτο.</span>
-          <span class="en">We bring everything needed — ingredients, equipment, tableware. We cook in your kitchen and serve course by course.</span>
+          <span class="el">Φέρνουμε ό,τι χρειάζεται, υλικά, εξοπλισμό, σερβίτσια. Μαγειρεύουμε στην κουζίνα σας και σερβίρουμε πιάτο-πιάτο.</span>
+          <span class="en">We bring everything needed, ingredients, equipment, tableware. We cook in your kitchen and serve course by course.</span>
         </p>
       </div>
       <div class="step">
         <div class="num">δ´</div>
         <h3><span class="el">Φεύγουμε αθόρυβα</span><span class="en">We leave quietly</span></h3>
         <p>
-          <span class="el">Η κουζίνα παραδίδεται όπως τη βρήκαμε. Εσείς μένετε με την παρέα σας — και με μια βραδιά που θα θυμάστε.</span>
-          <span class="en">The kitchen is left exactly as we found it. You stay with your company — and with an evening to remember.</span>
+          <span class="el">Η κουζίνα παραδίδεται όπως τη βρήκαμε. Εσείς μένετε με την παρέα σας, και με μια βραδιά που θα θυμάστε.</span>
+          <span class="en">The kitchen is left exactly as we found it. You stay with your company, and with an evening to remember.</span>
         </p>
       </div>
     </div>
@@ -384,8 +395,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
         <span class="en">Four ways to set the table</span>
       </h2>
       <p>
-        <span class="el">Τα παρακάτω μενού είναι ενδεικτικά — κάθε μενού σχεδιάζεται από την αρχή και προσαρμόζεται πλήρως στις ανάγκες, τις προτιμήσεις και τις διατροφικές ιδιαιτερότητες κάθε πελάτη.</span>
-        <span class="en">The menus below are indicative — every menu is designed from scratch and fully tailored to each client's needs, preferences and dietary requirements.</span>
+        <span class="el">Τα παρακάτω μενού είναι ενδεικτικά: κάθε μενού σχεδιάζεται από την αρχή και προσαρμόζεται πλήρως στις ανάγκες, τις προτιμήσεις και τις διατροφικές ιδιαιτερότητες κάθε πελάτη.</span>
+        <span class="en">The menus below are indicative: every menu is designed from scratch and fully tailored to each client's needs, preferences and dietary requirements.</span>
       </p>
     </div>
     <div class="menu-card reveal">
@@ -463,8 +474,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
         <div class="menu">
           <h3><span class="el">Ελληνικό BBQ</span><span class="en">Greek BBQ</span></h3>
           <p class="desc">
-            <span class="el">Φωτιά, κάρβουνο και ελληνική σχάρα στην αυλή σας — το πιο χαλαρό και μυρωδάτο τραπέζι του καλοκαιριού.</span>
-            <span class="en">Fire, charcoal and the Greek grill in your own courtyard — summer's most relaxed and fragrant table.</span>
+            <span class="el">Φωτιά, κάρβουνο και ελληνική σχάρα στην αυλή σας, το πιο χαλαρό και μυρωδάτο τραπέζι του καλοκαιριού.</span>
+            <span class="en">Fire, charcoal and the Greek grill in your own courtyard, summer's most relaxed and fragrant table.</span>
           </p>
           <div class="course-label"><span class="el">Για αρχή</span><span class="en">To begin</span></div>
           <ul>
@@ -486,8 +497,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 
       </div>
       <p class="menu-note">
-        <span class="el"><strong>Κάθε μενού προσαρμόζεται στις ανάγκες σας.</strong> Χορτοφαγικά, vegan, χωρίς γλουτένη, παιδικά μενού, γάμοι και μεγάλες ομάδες — πείτε μας τι ονειρεύεστε και θα το μαγειρέψουμε.</span>
-        <span class="en"><strong>Every menu is tailored to your needs.</strong> Vegetarian, vegan, gluten-free, children's menus, weddings and large groups — tell us what you dream of and we'll cook it.</span>
+        <span class="el"><strong>Κάθε μενού προσαρμόζεται στις ανάγκες σας.</strong> Χορτοφαγικά, vegan, χωρίς γλουτένη, παιδικά μενού, γάμοι και μεγάλες ομάδες: πείτε μας τι ονειρεύεστε και θα το μαγειρέψουμε.</span>
+        <span class="en"><strong>Every menu is tailored to your needs.</strong> Vegetarian, vegan, gluten-free, children's menus, weddings and large groups: tell us what you dream of and we'll cook it.</span>
       </p>
     </div>
   </div>
@@ -549,15 +560,26 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
       </div></div>
       <div class="inc"><div class="dot"></div><div>
         <h3><span class="el">Καθαριότητα</span><span class="en">Clean-up</span></h3>
-        <p><span class="el">Η κουζίνα παραδίδεται όπως τη βρήκαμε — ή καλύτερη.</span><span class="en">The kitchen is left as we found it — or better.</span></p>
+        <p><span class="el">Η κουζίνα παραδίδεται όπως τη βρήκαμε, ή καλύτερη.</span><span class="en">The kitchen is left as we found it, or better.</span></p>
       </div></div>
       <div class="inc"><div class="dot"></div><div>
         <h3><span class="el">Ευελιξία</span><span class="en">Flexibility</span></h3>
-        <p><span class="el">Μεσημεριανά, δείπνα, brunch, μπάρμπεκιου — ό,τι ζητάει η περίσταση.</span><span class="en">Lunches, dinners, brunches, barbecues — whatever the occasion calls for.</span></p>
+        <p><span class="el">Μεσημεριανά, δείπνα, brunch, μπάρμπεκιου, ό,τι ζητάει η περίσταση.</span><span class="en">Lunches, dinners, brunches, barbecues, whatever the occasion calls for.</span></p>
       </div></div>
     </div>
   </div>
 </section>
+
+<!-- OLIVE BANNER -->
+<div class="banner">
+  <div class="wrap">
+    <blockquote>
+      <span class="el">«Μαγειρεύουμε εκεί όπου η Κρήτη είναι πιο όμορφη: στο δικό σας τραπέζι.»</span>
+      <span class="en">"We cook where Crete is at its most beautiful: at your own table."</span>
+    </blockquote>
+    <div class="b-sub">Chef George</div>
+  </div>
+</div>
 
 <!-- COVERAGE -->
 <section id="coverage" class="coverage">
@@ -577,8 +599,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
       <div class="region"><span class="el">Ελαφονήσι έως Σητεία</span><span class="en">Elafonisi to Sitia</span></div>
     </div>
     <p class="note reveal">
-      <span class="el">Βίλες, εξοχικά, ξενοδοχεία, σκάφη ή το σπίτι σας — όπου υπάρχει κουζίνα και καλή παρέα, ερχόμαστε. Για απομακρυσμένες τοποθεσίες ενδέχεται να υπάρχει μικρή χρέωση μετακίνησης, την οποία επιβεβαιώνουμε εκ των προτέρων.</span>
-      <span class="en">Villas, holiday homes, hotels, boats or your own house — wherever there's a kitchen and good company, we'll be there. Remote locations may carry a small travel fee, always confirmed in advance.</span>
+      <span class="el">Βίλες, εξοχικά, ξενοδοχεία, σκάφη ή το σπίτι σας. Όπου υπάρχει κουζίνα και καλή παρέα, ερχόμαστε. Για απομακρυσμένες τοποθεσίες ενδέχεται να υπάρχει μικρή χρέωση μετακίνησης, την οποία επιβεβαιώνουμε εκ των προτέρων.</span>
+      <span class="en">Villas, holiday homes, hotels, boats or your own house. Wherever there's a kitchen and good company, we'll be there. Remote locations may carry a small travel fee, always confirmed in advance.</span>
     </p>
   </div>
 </section>
@@ -593,8 +615,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
         <span class="en">Design your evening</span>
       </h2>
       <p>
-        <span class="el">Απαντήστε σε τέσσερις ερωτήσεις και στείλτε μας το αίτημά σας με ένα κουμπί — έτοιμο, χωρίς να γράψετε τίποτα.</span>
-        <span class="en">Answer four quick questions and send us your request with one tap — no typing needed.</span>
+        <span class="el">Απαντήστε σε τέσσερις ερωτήσεις και στείλτε μας το αίτημά σας με ένα κουμπί, έτοιμο, χωρίς να γράψετε τίποτα.</span>
+        <span class="en">Answer four quick questions and send us your request with one tap, no typing needed.</span>
       </p>
     </div>
     <div class="plan-card reveal">
@@ -639,8 +661,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
         </a>
       </div>
       <p class="plan-hint">
-        <span class="el">Το μήνυμα ετοιμάζεται αυτόματα με τις επιλογές σας — μπορείτε να το αλλάξετε πριν το στείλετε.</span>
-        <span class="en">Your message is pre-filled with your choices — you can edit it before sending.</span>
+        <span class="el">Το μήνυμα ετοιμάζεται αυτόματα με τις επιλογές σας, μπορείτε να το αλλάξετε πριν το στείλετε.</span>
+        <span class="en">Your message is pre-filled with your choices, you can edit it before sending.</span>
       </p>
     </div>
   </div>
@@ -656,27 +678,38 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
         <span class="en">What everyone asks before their first dinner</span>
       </h2>
     </div>
-    <div class="faq reveal">
+    <div class="faq-wrap reveal">
+      <div class="faq">
       <details>
         <summary><span><span class="el">Πόσες μέρες πριν πρέπει να κλείσω;</span><span class="en">How far in advance should I book?</span></span><span class="plus">+</span></summary>
-        <p class="a"><span class="el">Ιδανικά 5–7 μέρες πριν, ώστε να σχεδιάσουμε το μενού και να εξασφαλίσουμε τις καλύτερες πρώτες ύλες. Το καλοκαίρι οι ημερομηνίες γεμίζουν γρήγορα — αλλά ρωτήστε μας και για πιο κοντινές ημερομηνίες, συχνά βρίσκουμε λύση.</span><span class="en">Ideally 5–7 days ahead, so we can design the menu and source the best ingredients. Summer dates fill up fast — but do ask about short notice, we often find a way.</span></p>
+        <p class="a"><span class="el">Ιδανικά 5–7 μέρες πριν, ώστε να σχεδιάσουμε το μενού και να εξασφαλίσουμε τις καλύτερες πρώτες ύλες. Το καλοκαίρι οι ημερομηνίες γεμίζουν γρήγορα, αλλά ρωτήστε μας και για πιο κοντινές ημερομηνίες, συχνά βρίσκουμε λύση.</span><span class="en">Ideally 5–7 days ahead, so we can design the menu and source the best ingredients. Summer dates fill up fast, but do ask about short notice, we often find a way.</span></p>
       </details>
       <details>
         <summary><span><span class="el">Τι χρειάζεται να έχω στην κουζίνα μου;</span><span class="en">What do I need in my kitchen?</span></span><span class="plus">+</span></summary>
-        <p class="a"><span class="el">Χρειάζεται να έχετε τα βασικά μαγειρικά σκεύη — κατσαρόλες, τηγάνια, εστίες, φούρνο. Εμείς φέρνουμε όλο τον πιο εξειδικευμένο εξοπλισμό που απαιτεί το μενού σας. Αν κάτι βασικό λείπει (π.χ. φούρνος σε σκάφος), το συζητάμε εκ των προτέρων και προσαρμόζουμε το μενού.</span><span class="en">You'll need the basic cooking equipment — pots, pans, a hob, an oven. We bring all the more specialised equipment your menu requires. If something basic is missing (say, no oven on a boat), we discuss it beforehand and adapt the menu.</span></p>
+        <p class="a"><span class="el">Χρειάζεται να έχετε τα βασικά μαγειρικά σκεύη: κατσαρόλες, τηγάνια, εστίες, φούρνο. Εμείς φέρνουμε όλο τον πιο εξειδικευμένο εξοπλισμό που απαιτεί το μενού σας. Αν κάτι βασικό λείπει (π.χ. φούρνος σε σκάφος), το συζητάμε εκ των προτέρων και προσαρμόζουμε το μενού.</span><span class="en">You'll need the basic cooking equipment: pots, pans, a hob, an oven. We bring all the more specialised equipment your menu requires. If something basic is missing (say, no oven on a boat), we discuss it beforehand and adapt the menu.</span></p>
       </details>
       <details>
         <summary><span><span class="el">Καλύπτετε αλλεργίες και ειδικές διατροφές;</span><span class="en">Do you cater for allergies and special diets?</span></span><span class="plus">+</span></summary>
-        <p class="a"><span class="el">Φυσικά. Χορτοφαγικά, vegan, χωρίς γλουτένη, παιδικά πιάτα, αλλεργίες κάθε είδους — μας τα λέτε στην πρώτη κουβέντα και το μενού σχεδιάζεται γύρω τους, όχι παρά αυτά.</span><span class="en">Of course. Vegetarian, vegan, gluten-free, children's plates, allergies of any kind — tell us in our first chat and the menu is designed around them, not despite them.</span></p>
+        <p class="a"><span class="el">Φυσικά. Χορτοφαγικά, vegan, χωρίς γλουτένη, παιδικά πιάτα, αλλεργίες κάθε είδους: μας τα λέτε στην πρώτη κουβέντα και το μενού σχεδιάζεται γύρω τους, όχι παρά αυτά.</span><span class="en">Of course. Vegetarian, vegan, gluten-free, children's plates, allergies of any kind: tell us in our first chat and the menu is designed around them, not despite them.</span></p>
       </details>
       <details>
         <summary><span><span class="el">Πόση ώρα διαρκεί ένα δείπνο;</span><span class="en">How long does a dinner last?</span></span><span class="plus">+</span></summary>
-        <p class="a"><span class="el">Ερχόμαστε 2–3 ώρες πριν το σερβίρισμα για την προετοιμασία. Το ίδιο το δείπνο κυλάει με τον δικό σας ρυθμό — συνήθως 2 έως 3 ώρες. Μετά καθαρίζουμε και αποχωρούμε διακριτικά.</span><span class="en">We arrive 2–3 hours before service to prepare. The dinner itself flows at your pace — usually 2 to 3 hours. Afterwards we clean up and slip away quietly.</span></p>
+        <p class="a"><span class="el">Ερχόμαστε 2–3 ώρες πριν το σερβίρισμα για την προετοιμασία. Το ίδιο το δείπνο κυλάει με τον δικό σας ρυθμό, συνήθως 2 έως 3 ώρες. Μετά καθαρίζουμε και αποχωρούμε διακριτικά.</span><span class="en">We arrive 2–3 hours before service to prepare. The dinner itself flows at your pace, usually 2 to 3 hours. Afterwards we clean up and slip away quietly.</span></p>
       </details>
       <details>
         <summary><span><span class="el">Πώς γίνεται η πληρωμή;</span><span class="en">How does payment work?</span></span><span class="plus">+</span></summary>
-        <p class="a"><span class="el">Η χρέωση είναι ανά άτομο και περιλαμβάνει τα πάντα — υλικά, μαγείρεμα, σερβίρισμα, καθαριότητα. Επιβεβαιώνουμε το ακριβές ποσό μαζί με το μενού, χωρίς κρυφές χρεώσεις.</span><span class="en">Pricing is per person and all-inclusive — ingredients, cooking, service, clean-up. We confirm the exact amount together with the menu, no hidden costs.</span></p>
+        <p class="a"><span class="el">Η χρέωση είναι ανά άτομο και περιλαμβάνει τα πάντα: υλικά, μαγείρεμα, σερβίρισμα, καθαριότητα. Επιβεβαιώνουμε το ακριβές ποσό μαζί με το μενού, χωρίς κρυφές χρεώσεις.</span><span class="en">Pricing is per person and all-inclusive: ingredients, cooking, service, clean-up. We confirm the exact amount together with the menu, no hidden costs.</span></p>
       </details>
+      </div>
+      <aside class="faq-side">
+        <figure>
+          <img src="images/bbq-illustration.jpg" alt="Ελληνικό BBQ κάτω από την ελιά" loading="lazy">
+          <figcaption>
+            <span class="el">Ελληνικό BBQ κάτω από την ελιά, με θέα το Λιβυκό</span>
+            <span class="en">Greek BBQ under the olive tree, overlooking the sea</span>
+          </figcaption>
+        </figure>
+      </aside>
     </div>
   </div>
 </section>
@@ -691,8 +724,8 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
         <span class="en">Let's set a date</span>
       </h2>
       <p>
-        <span class="el">Απαντάμε καθημερινά. Πείτε μας ημερομηνία, τοποθεσία και πόσα άτομα — και αναλαμβάνουμε από εκεί.</span>
-        <span class="en">We reply daily. Tell us your date, location and party size — we'll take it from there.</span>
+        <span class="el">Απαντάμε καθημερινά. Πείτε μας ημερομηνία, τοποθεσία και πόσα άτομα, και αναλαμβάνουμε από εκεί.</span>
+        <span class="en">We reply daily. Tell us your date, location and party size, we'll take it from there.</span>
       </p>
     </div>
     <div class="contact-grid reveal">
@@ -763,7 +796,7 @@ try{const saved=localStorage.getItem('lang');if(saved)setLang(saved)}catch(e){}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// gallery + carousel — φορτώνουν φωτογραφίες από το data/gallery.json (διαχείριση μέσω /admin)
+// gallery + carousel, φορτώνουν φωτογραφίες από το data/gallery.json (διαχείριση μέσω /admin)
 let galleryImages=[];
 let lbIndex=0;
 
@@ -822,14 +855,14 @@ fetch('data/gallery.json',{cache:'no-store'})
       const fig=document.createElement('figure');
       const img=document.createElement('img');
       img.src=item.image;
-      img.alt=item.alt||'Chef George — private dining';
+      img.alt=item.alt||'Chef George, private dining';
       img.loading='lazy';
       fig.appendChild(img);
       fig.addEventListener('click',()=>openLightbox(i));
       grid.appendChild(fig);
     });
 
-    // carousel — οι πρώτες 8 φωτογραφίες
+    // carousel, οι πρώτες 8 φωτογραφίες
     const slides=galleryImages.slice(0,8);
     carCount=slides.length;
     if(carCount>1){
@@ -864,17 +897,17 @@ fetch('data/gallery.json',{cache:'no-store'})
   })
   .catch(()=>{}); // αν αποτύχει (π.χ. τοπικό άνοιγμα αρχείου), μένουν τα placeholders
 
-// marquee — διπλασιασμός περιεχομένου για συνεχή κύλιση
+// marquee, διπλασιασμός περιεχομένου για συνεχή κύλιση
 const marq=document.getElementById('marqTrack');
 if(marq)marq.innerHTML+=marq.innerHTML;
 
-// floating WhatsApp — εμφανίζεται μετά το hero
+// floating WhatsApp, εμφανίζεται μετά το hero
 const waFloat=document.getElementById('waFloat');
 window.addEventListener('scroll',()=>{
   waFloat.classList.toggle('show',window.scrollY>480);
 },{passive:true});
 
-// wizard — σχεδίασε τη βραδιά σου
+// wizard, σχεδίασε τη βραδιά σου
 const planSel={people:null,menu:null,menuEn:null,area:null,areaEn:null};
 document.querySelectorAll('.pills').forEach(group=>{
   group.querySelectorAll('.pill').forEach(p=>{
@@ -901,22 +934,22 @@ function updatePlanLink(){
   let msg;
   if(isEl){
     msg='Γεια σας! Θα ήθελα να κλείσω ένα ιδιωτικό δείπνο:\n'
-      +'\u{1F465} Άτομα: '+(planSel.people||'—')+'\n'
-      +'\u{1F37D} Μενού: '+(planSel.menu||'—')+'\n'
-      +'\u{1F4CD} Περιοχή: '+(planSel.area||'—')+'\n'
-      +'\u{1F4C5} Ημερομηνία: '+(dateStr||'—');
+      +'\u{1F465} Άτομα: '+(planSel.people||'-')+'\n'
+      +'\u{1F37D} Μενού: '+(planSel.menu||'-')+'\n'
+      +'\u{1F4CD} Περιοχή: '+(planSel.area||'-')+'\n'
+      +'\u{1F4C5} Ημερομηνία: '+(dateStr||'-');
   }else{
     msg='Hello! I would like to book a private dinner:\n'
-      +'\u{1F465} Guests: '+(planSel.people||'—')+'\n'
-      +'\u{1F37D} Menu: '+(planSel.menuEn||planSel.menu||'—')+'\n'
-      +'\u{1F4CD} Area: '+(planSel.areaEn||planSel.area||'—')+'\n'
-      +'\u{1F4C5} Date: '+(dateStr||'—');
+      +'\u{1F465} Guests: '+(planSel.people||'-')+'\n'
+      +'\u{1F37D} Menu: '+(planSel.menuEn||planSel.menu||'-')+'\n'
+      +'\u{1F4CD} Area: '+(planSel.areaEn||planSel.area||'-')+'\n'
+      +'\u{1F4C5} Date: '+(dateStr||'-');
   }
   document.getElementById('planWa').href='https://wa.me/306983070234?text='+encodeURIComponent(msg);
 }
 updatePlanLink();
 
-// Netlify Identity — ολοκλήρωση πρόσκλησης admin και μετάβαση στο /admin
+// Netlify Identity, ολοκλήρωση πρόσκλησης admin και μετάβαση στο /admin
 if(window.netlifyIdentity){
   window.netlifyIdentity.on('init',user=>{
     if(!user){window.netlifyIdentity.on('login',()=>{document.location.href='/admin/'})}
