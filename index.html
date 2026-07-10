@@ -43,11 +43,6 @@ body{font-family:var(--body);background:var(--paper);color:var(--ink);line-heigh
 html[data-lang="el"] .en{display:none !important}
 html[data-lang="en"] .el{display:none !important}
 
-/* ——— signature: menu-cover frame ——— */
-.frame{position:fixed;inset:14px;border:1px solid var(--line);pointer-events:none;z-index:60}
-.frame::after{content:"";position:absolute;inset:4px;border:1px solid var(--line)}
-@media(max-width:720px){.frame{inset:8px}.frame::after{display:none}}
-
 a{color:inherit}
 img{max-width:100%}
 .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,6vw,64px)}
@@ -72,6 +67,14 @@ nav.links a:hover{opacity:1}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,20,.82) 0%,rgba(23,30,25,.86) 55%,rgba(27,36,32,.92) 100%)}
 .hero .wrap{position:relative;z-index:2}
 @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.09)}}
+/* κομψό εσωτερικό πλαίσιο μόνο μέσα στο hero, δεν ακουμπά το header */
+.hero-frame{position:absolute;inset:22px;border:1px solid rgba(243,241,234,.22);pointer-events:none;z-index:1}
+.hero-frame::before,.hero-frame::after,.hero-frame i::before,.hero-frame i::after{content:"";position:absolute;width:30px;height:30px;border-color:var(--honey-soft);border-style:solid}
+.hero-frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.hero-frame::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.hero-frame i::before{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.hero-frame i::after{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+@media(max-width:720px){.hero-frame{inset:12px}.hero-frame::before,.hero-frame::after,.hero-frame i::before,.hero-frame i::after{width:20px;height:20px}}
 .hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-160px;top:-180px;background:radial-gradient(circle,rgba(198,151,63,.16),transparent 65%)}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--honey-soft)}
 .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(52px,9vw,104px);line-height:1.02;margin:22px 0 8px}
@@ -258,8 +261,6 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 </head>
 <body>
 
-<div class="frame" aria-hidden="true"></div>
-
 <header>
   <div class="nav">
     <a class="monogram" href="#top" aria-label="Chef George Crete"><img src="images/logo.png" alt="Chef George Crete" class="logo-img"></a>
@@ -280,6 +281,7 @@ footer .fmono em{font-style:italic;color:var(--honey-soft)}
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-frame" aria-hidden="true"><i></i></div>
   <div class="wrap">
     <div class="eyebrow"><span class="el">Private Chef · Κρήτη</span><span class="en">Private Chef · Crete</span></div>
     <h1>Chef <em>George</em></h1>
