@@ -195,6 +195,18 @@ section{padding:clamp(72px,10vh,110px) 0}
 /* scroll progress */
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--honey);z-index:90}
 
+/* experiences */
+.exp-sec{background:var(--linen)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.exp-grid{grid-template-columns:1fr}}
+.exp{border:1px solid var(--line);background:var(--paper);padding:34px 28px;position:relative;transition:transform .18s,border-color .2s}
+.exp:hover{transform:translateY(-3px);border-color:var(--honey)}
+.exp .exp-ico{width:38px;height:38px;margin-bottom:18px}
+.exp .exp-ico svg{width:100%;height:100%;stroke:var(--honey);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.exp h3{font-family:var(--display);font-weight:600;font-size:24px;margin-bottom:10px}
+.exp p{font-size:14.5px;color:rgba(27,36,32,.72)}
+@media(prefers-reduced-motion:reduce){.exp:hover{transform:none}}
+
 /* stats */
 .stats-sec{background:var(--paper);border-bottom:1px solid var(--line);padding:clamp(50px,8vh,80px) 0}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
@@ -541,6 +553,45 @@ footer{background:var(--ink);color:rgba(243,241,234,.65);padding:0;font-size:14p
   </div>
 </section>
 
+<!-- EXPERIENCES -->
+<section id="experiences" class="exp-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span class="el">Περισσότερες εμπειρίες</span><span class="en">More experiences</span></div>
+      <h2>
+        <span class="el">Όχι μόνο δείπνα</span>
+        <span class="en">Not just dinners</span>
+      </h2>
+    </div>
+    <div class="exp-grid reveal">
+      <div class="exp">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-5h6v5"/></svg></div>
+        <h3>Eat with Locals</h3>
+        <p>
+          <span class="el">Ζήστε ένα αυθεντικό κρητικό τραπέζι παρέα με ντόπιους: σπιτικές γεύσεις, ιστορίες του τόπου, ρακή και μαντινάδες, όπως στα αληθινά κρητικά σπίτια.</span>
+          <span class="en">Share an authentic Cretan table with locals: home-style flavours, stories of the land, raki and mantinades, just like in real Cretan homes.</span>
+        </p>
+      </div>
+      <div class="exp">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><path d="M6 3v5a2 2 0 0 0 4 0V3"/><path d="M8 3v18"/><path d="M17 3c-2 0-3 2.5-3 5s1 4 3 4v9"/></svg></div>
+        <h3><span class="el">Μαθήματα Μαγειρικής</span><span class="en">Cooking Lessons</span></h3>
+        <p>
+          <span class="el">Μάθετε τα μυστικά της κρητικής κουζίνας με τα χέρια σας: καλιτσούνια, ντάκος, πίτες και ό,τι αγαπάτε. Στο τέλος, απολαμβάνετε όλοι μαζί ό,τι φτιάξατε.</span>
+          <span class="en">Learn the secrets of Cretan cooking hands-on: kalitsounia, dakos, pies and whatever you love. At the end, everyone enjoys what you made together.</span>
+        </p>
+      </div>
+      <div class="exp">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.5 3 3.5.5-2.5 2.5.5 3.5-3-1.5-3 1.5.5-3.5L7 6.5 10.5 6z"/><path d="M5 21l2-6M19 21l-2-6M9 21h6"/></svg></div>
+        <h3><span class="el">Παιδικά Πάρτυ</span><span class="en">Kids' Parties</span></h3>
+        <p>
+          <span class="el">Γενέθλια και γιορτές με μενού που λατρεύουν τα παιδιά, και μικρές μαγειρικές δραστηριότητες όπου φτιάχνουν μόνα τους την πίτσα ή τα μπισκότα τους.</span>
+          <span class="en">Birthdays and celebrations with menus kids adore, plus mini cooking activities where they make their own pizza or cookies.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STATS -->
 <section class="stats-sec">
   <div class="wrap">
@@ -687,12 +738,15 @@ footer{background:var(--ink);color:rgba(243,241,234,.65);padding:0;font-size:14p
         </div>
       </div>
       <div class="plan-q">
-        <div class="q-label"><span class="q-num">β´</span><span class="el">Ποιο μενού σας τραβάει;</span><span class="en">Which menu tempts you?</span></div>
+        <div class="q-label"><span class="q-num">β´</span><span class="el">Τι σας ενδιαφέρει;</span><span class="en">What are you interested in?</span></div>
         <div class="pills" data-group="menu">
           <button class="pill" data-val="Κρητικό Τραπέζι" data-val-en="The Cretan Table"><span class="el">Κρητικό Τραπέζι</span><span class="en">The Cretan Table</span></button>
           <button class="pill" data-val="Μεσογειακή Θάλασσα" data-val-en="Mediterranean Sea"><span class="el">Μεσογειακή Θάλασσα</span><span class="en">Mediterranean Sea</span></button>
           <button class="pill" data-val="Δείπνο Γευσιγνωσίας" data-val-en="Chef's Tasting"><span class="el">Δείπνο Γευσιγνωσίας</span><span class="en">Chef's Tasting</span></button>
           <button class="pill" data-val="Ελληνικό BBQ" data-val-en="Greek BBQ"><span class="el">Ελληνικό BBQ</span><span class="en">Greek BBQ</span></button>
+          <button class="pill" data-val="Eat with Locals" data-val-en="Eat with Locals">Eat with Locals</button>
+          <button class="pill" data-val="Μάθημα Μαγειρικής" data-val-en="Cooking Lesson"><span class="el">Μάθημα Μαγειρικής</span><span class="en">Cooking Lesson</span></button>
+          <button class="pill" data-val="Παιδικό Πάρτυ" data-val-en="Kids' Party"><span class="el">Παιδικό Πάρτυ</span><span class="en">Kids' Party</span></button>
           <button class="pill" data-val="Δεν έχω αποφασίσει" data-val-en="Not sure yet"><span class="el">Δεν έχω αποφασίσει</span><span class="en">Not sure yet</span></button>
         </div>
       </div>
@@ -789,7 +843,7 @@ footer{background:var(--ink);color:rgba(243,241,234,.65);padding:0;font-size:14p
       <a class="channel" href="tel:+306983070234">
         <div class="label"><span class="el">Τηλέφωνο</span><span class="en">Phone</span></div>
         <div class="value">+30 698 307 0234</div>
-        <div class="hint"><span class="el">Viber &amp; WhatsApp · ή +30 697 729 3734</span><span class="en">Viber &amp; WhatsApp · or +30 697 729 3734</span></div>
+        <div class="hint"><span class="el">Viber &amp; WhatsApp · ή +30 697 410 4472</span><span class="en">Viber &amp; WhatsApp · or +30 697 410 4472</span></div>
       </a>
       <a class="channel" href="https://wa.me/306983070234" target="_blank" rel="noopener">
         <div class="label">WhatsApp</div>
@@ -839,6 +893,7 @@ footer{background:var(--ink);color:rgba(243,241,234,.65);padding:0;font-size:14p
         <ul class="f-links">
           <li><a href="#how"><span class="el">Πώς λειτουργεί</span><span class="en">How it works</span></a></li>
           <li><a href="#menus"><span class="el">Τα μενού μας</span><span class="en">Our menus</span></a></li>
+          <li><a href="#experiences"><span class="el">Εμπειρίες</span><span class="en">Experiences</span></a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#plan"><span class="el">Κράτηση</span><span class="en">Book</span></a></li>
           <li><a href="#faq"><span class="el">Συχνές ερωτήσεις</span><span class="en">FAQ</span></a></li>
@@ -848,7 +903,7 @@ footer{background:var(--ink);color:rgba(243,241,234,.65);padding:0;font-size:14p
       <div class="f-contact">
         <div class="f-h"><span class="el">Επικοινωνία</span><span class="en">Contact</span></div>
         <p><a href="tel:+306983070234">+30 698 307 0234</a> <span style="opacity:.5">· Viber &amp; WhatsApp</span></p>
-        <p><a href="tel:+306977293734">+30 697 729 3734</a></p>
+        <p><a href="tel:+306974104472">+30 697 410 4472</a></p>
         <p><a href="https://instagram.com/chefgeorge.crete" target="_blank" rel="noopener">@chefgeorge.crete</a></p>
         <p style="opacity:.6;margin-top:14px"><span class="el">Χανιά · Ρέθυμνο · Ηράκλειο · Λασίθι</span><span class="en">Chania · Rethymno · Heraklion · Lasithi</span></p>
       </div>
@@ -1041,13 +1096,13 @@ function updatePlanLink(){
   if(isEl){
     msg='Γεια σας! Θα ήθελα να κλείσω ένα ιδιωτικό δείπνο:\n'
       +'\u{1F465} Άτομα: '+(planSel.people||'-')+'\n'
-      +'\u{1F37D} Μενού: '+(planSel.menu||'-')+'\n'
+      +'\u{1F37D} Ενδιαφέρον: '+(planSel.menu||'-')+'\n'
       +'\u{1F4CD} Περιοχή: '+(planSel.area||'-')+'\n'
       +'\u{1F4C5} Ημερομηνία: '+(dateStr||'-');
   }else{
     msg='Hello! I would like to book a private dinner:\n'
       +'\u{1F465} Guests: '+(planSel.people||'-')+'\n'
-      +'\u{1F37D} Menu: '+(planSel.menuEn||planSel.menu||'-')+'\n'
+      +'\u{1F37D} Interested in: '+(planSel.menuEn||planSel.menu||'-')+'\n'
       +'\u{1F4CD} Area: '+(planSel.areaEn||planSel.area||'-')+'\n'
       +'\u{1F4C5} Date: '+(dateStr||'-');
   }
