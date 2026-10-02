@@ -20,7 +20,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 :root{
   --ink:#1b2420;          /* dark cypress */
@@ -1110,12 +1109,6 @@ function updatePlanLink(){
 }
 updatePlanLink();
 
-// Netlify Identity, ολοκλήρωση πρόσκλησης admin και μετάβαση στο /admin
-if(window.netlifyIdentity){
-  window.netlifyIdentity.on('init',user=>{
-    if(!user){window.netlifyIdentity.on('login',()=>{document.location.href='/admin/'})}
-  });
-}
 </script>
 </body>
 </html>

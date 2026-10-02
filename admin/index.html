@@ -1,14 +1,401 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Διαχείριση — Chef George</title>
-  <meta name="robots" content="noindex">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Διαχείριση Gallery, Chef George</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b2420;
+  --ink-soft:#27332d;
+  --paper:#fbfaf5;
+  --linen:#f1efe7;
+  --olive:#6e7a54;
+  --honey:#c6973f;
+  --sea:#2e5e5a;
+  --danger:#a8432f;
+  --line:rgba(27,36,32,.16);
+  --display:'Cormorant Garamond',Georgia,serif;
+  --body:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.5;font-size:16px;-webkit-font-smoothing:antialiased;min-height:100vh}
+[hidden]{display:none!important}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 24px;border:0;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:700;font-size:15px;letter-spacing:.02em;text-decoration:none;transition:box-shadow .2s,transform .1s}
+.btn:active{transform:scale(.98)}
+.btn-honey{background:var(--honey);color:#181c15}
+.btn-honey:hover{box-shadow:0 6px 24px rgba(198,151,63,.35)}
+.btn[disabled]{opacity:.6;cursor:default}
+:focus-visible,.file-input:focus-visible + .btn{outline:3px solid var(--sea);outline-offset:2px}
+
+/* login */
+.login{min-height:100vh;display:grid;place-items:center;padding:24px 16px;background:var(--ink)}
+.login form{width:100%;max-width:360px;background:var(--paper);border-radius:20px;padding:32px 24px;display:grid;gap:14px}
+.login h1{font-family:var(--display);font-weight:600;font-size:34px;line-height:1.1}
+.login p.sub{color:var(--olive);margin-top:-8px}
+.login label{font-weight:600;font-size:14px;margin-top:6px}
+.login input{width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font-size:16px}
+.err{color:var(--danger);font-size:14px;min-height:1.5em}
+
+/* app */
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--ink);color:var(--paper)}
+.brand{display:flex;align-items:baseline;gap:10px;min-width:0}
+.brand .name{font-family:var(--display);font-weight:600;font-size:24px;white-space:nowrap}
+.brand .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--honey)}
+.bar nav{display:flex;gap:4px;align-items:center}
+.bar nav a,.bar nav button{background:none;border:0;color:var(--paper);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;padding:10px;border-radius:8px;opacity:.85}
+@media (max-width:420px){.brand .tag{display:none}}
+.bar nav a:hover,.bar nav button:hover{opacity:1;background:rgba(255,255,255,.08)}
+
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 80px}
+.upload{background:var(--linen);border-radius:18px;padding:20px;display:grid;gap:10px;justify-items:start}
+.upload .hint{font-size:14px;color:var(--ink-soft)}
+.queue{list-style:none;padding:0;display:grid;gap:6px;width:100%}
+.queue li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px;font-size:14px;padding:8px 12px;background:var(--paper);border-radius:10px}
+.queue .fname{flex:1 1 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.queue .state{flex:none;font-weight:600;color:var(--olive)}
+.queue .state.ok{color:var(--sea)}
+.queue .state.bad{flex-basis:100%;color:var(--danger)}
+
+.list-head{display:flex;align-items:baseline;justify-content:space-between;margin:28px 0 12px}
+.list-head h2{font-family:var(--display);font-weight:600;font-size:28px}
+.list-head span{font-family:var(--body);font-size:15px;color:var(--olive);font-weight:500}
+
+.grid{list-style:none;padding:0;display:grid;gap:12px}
+.item{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}
+.thumb{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--linen)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pos{position:absolute;top:6px;left:6px;min-width:26px;height:26px;padding:0 7px;border-radius:13px;background:rgba(27,36,32,.82);color:var(--paper);font-size:13px;font-weight:700;display:grid;place-items:center}
+.meta{display:grid;gap:8px;min-width:0}
+.alt{width:100%;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);font-size:15px}
+.actions{display:flex;flex-wrap:wrap;gap:6px}
+.actions button{min-height:40px;min-width:44px;padding:6px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);font-size:14px;font-weight:600}
+.actions button:hover:not([disabled]){border-color:var(--ink)}
+.actions button[disabled]{opacity:.35;cursor:default}
+.actions .del{margin-left:auto;color:var(--danger)}
+.actions .del:hover{border-color:var(--danger)!important;background:#fbeeea}
+.empty{padding:32px;text-align:center;color:var(--olive);background:var(--linen);border-radius:14px}
+
+@media (min-width:720px){
+  .grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .item{grid-template-columns:1fr;padding:12px}
+  .thumb{aspect-ratio:4/3}
+}
+
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);max-width:calc(100% - 32px);padding:12px 18px;border-radius:12px;background:var(--ink);color:var(--paper);font-size:15px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.bad{background:var(--danger)}
+</style>
 </head>
 <body>
-  <!-- Decap CMS (πρώην Netlify CMS) -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<main id="loginView" class="login" hidden>
+  <form id="loginForm">
+    <h1>Chef George</h1>
+    <p class="sub">Διαχείριση gallery</p>
+    <label for="pw">Κωδικός</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="btn btn-honey" type="submit">Σύνδεση</button>
+    <p class="err" id="loginErr" role="alert"></p>
+  </form>
+</main>
+
+<div id="appView" hidden>
+  <header class="bar">
+    <div class="brand"><span class="name">Chef George</span><span class="tag">Gallery</span></div>
+    <nav>
+      <a href="/#gallery" target="_blank" rel="noopener">Δες το site</a>
+      <button id="logoutBtn" type="button">Έξοδος</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="upload" aria-label="Προσθήκη φωτογραφιών">
+      <input id="fileInput" class="file-input sr-only" type="file" accept="image/*" multiple>
+      <label for="fileInput" class="btn btn-honey">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        Προσθήκη φωτογραφιών
+      </label>
+      <p class="hint">Μπορείς να διαλέξεις πολλές μαζί. Μπαίνουν πρώτες στη gallery και μικραίνουν αυτόματα πριν ανέβουν.</p>
+      <ul id="queue" class="queue"></ul>
+    </section>
+
+    <div class="list-head">
+      <h2>Φωτογραφίες <span id="count"></span></h2>
+    </div>
+    <ol id="grid" class="grid"></ol>
+    <p id="empty" class="empty" hidden>Δεν υπάρχουν φωτογραφίες ακόμα. Πρόσθεσε την πρώτη από πάνω.</p>
+  </main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<template id="itemTpl">
+  <li class="item">
+    <div class="thumb"><img alt="" loading="lazy"><span class="pos"></span></div>
+    <div class="meta">
+      <input class="alt" type="text" maxlength="200" placeholder="Περιγραφή (προαιρετική)">
+      <div class="actions">
+        <button type="button" data-act="top">Πρώτη</button>
+        <button type="button" data-act="up" aria-label="Μετακίνηση πιο μπροστά">↑</button>
+        <button type="button" data-act="down" aria-label="Μετακίνηση πιο πίσω">↓</button>
+        <button type="button" data-act="del" class="del">Διαγραφή</button>
+      </div>
+    </div>
+  </li>
+</template>
+
+<script>
+const MAX_SIDE = 2000;
+const JPEG_QUALITY = 0.85;
+
+const $ = sel => document.querySelector(sel);
+let images = [];
+
+async function api(path, options = {}) {
+  const res = await fetch('/api/' + path, { credentials: 'same-origin', ...options });
+  const data = await res.json().catch(() => ({}));
+  if (res.status === 401 && path !== 'login') {
+    showLogin();
+    throw new Error(data.error || 'Απαιτείται σύνδεση.');
+  }
+  if (!res.ok) throw new Error(data.error || 'Κάτι πήγε στραβά (' + res.status + ').');
+  return data;
+}
+
+function jsonBody(method, body) {
+  return { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) };
+}
+
+let toastTimer;
+function toast(message, bad = false) {
+  const el = $('#toast');
+  el.textContent = message;
+  el.classList.toggle('bad', bad);
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), bad ? 5000 : 2500);
+}
+
+function showLogin() {
+  $('#appView').hidden = true;
+  $('#loginView').hidden = false;
+  $('#pw').focus();
+}
+
+async function loadGallery() {
+  try {
+    images = (await api('gallery')).images;
+    $('#loginView').hidden = true;
+    $('#appView').hidden = false;
+    render();
+  } catch (err) {
+    showLogin();
+    if (err.message !== 'Απαιτείται σύνδεση.') $('#loginErr').textContent = err.message;
+  }
+}
+
+// --- list -----------------------------------------------------------------
+
+function render(focus) {
+  const tpl = $('#itemTpl').content;
+  $('#grid').replaceChildren(...images.map((item, i) => {
+    const li = tpl.firstElementChild.cloneNode(true);
+    const img = li.querySelector('img');
+    img.src = '/' + item.image.replace(/^\/+/, '');
+    img.alt = item.alt || '';
+    li.querySelector('.pos').textContent = i + 1;
+    const alt = li.querySelector('.alt');
+    alt.value = item.alt || '';
+    alt.setAttribute('aria-label', 'Περιγραφή φωτογραφίας ' + (i + 1));
+    alt.addEventListener('change', () => saveAlt(i, alt.value));
+    li.querySelector('[data-act=top]').disabled = i === 0;
+    li.querySelector('[data-act=up]').disabled = i === 0;
+    li.querySelector('[data-act=down]').disabled = i === images.length - 1;
+    li.querySelector('.actions').addEventListener('click', e => {
+      const act = e.target.closest('button')?.dataset.act;
+      if (act === 'top') move(i, 0, act);
+      if (act === 'up') move(i, i - 1, act);
+      if (act === 'down') move(i, i + 1, act);
+      if (act === 'del') remove(i);
+    });
+    return li;
+  }));
+  $('#count').textContent = images.length ? '(' + images.length + ')' : '';
+  $('#empty').hidden = images.length > 0;
+  if (focus) {
+    const li = $('#grid').children[focus.index];
+    const btn = li && li.querySelector('[data-act=' + focus.act + ']');
+    (btn && !btn.disabled ? btn : li?.querySelector('.alt'))?.focus();
+  }
+}
+
+async function saveList(next, { rerender = true, focus, message } = {}) {
+  const previous = images;
+  images = next;
+  if (rerender) render(focus);
+  try {
+    images = (await api('gallery', jsonBody('PUT', { images: next }))).images;
+    if (message) toast(message);
+  } catch (err) {
+    images = previous;
+    render();
+    toast(err.message, true);
+  }
+}
+
+function move(from, to, act) {
+  if (to < 0 || to >= images.length) return;
+  const next = images.slice();
+  next.splice(to, 0, next.splice(from, 1)[0]);
+  saveList(next, { focus: { index: to, act } });
+}
+
+function saveAlt(i, value) {
+  const next = images.map((item, j) => (j === i ? { ...item, alt: value.trim() } : item));
+  saveList(next, { rerender: false, message: 'Η περιγραφή αποθηκεύτηκε' });
+}
+
+async function remove(i) {
+  if (!confirm('Να αφαιρεθεί η φωτογραφία ' + (i + 1) + ' από τη gallery;')) return;
+  try {
+    images = (await api('images?image=' + encodeURIComponent(images[i].image), { method: 'DELETE' })).images;
+    render({ index: Math.min(i, images.length - 1), act: 'del' });
+    toast('Η φωτογραφία αφαιρέθηκε');
+  } catch (err) {
+    toast(err.message, true);
+  }
+}
+
+// --- upload ---------------------------------------------------------------
+
+async function decode(file) {
+  try {
+    return await createImageBitmap(file, { imageOrientation: 'from-image' });
+  } catch {
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+    try {
+      await img.decode();
+      return img;
+    } catch {
+      throw new Error('Η μορφή του αρχείου δεν υποστηρίζεται. Δοκίμασε JPG ή PNG.');
+    }
+  }
+}
+
+// Re-encoding through a canvas also drops EXIF data such as the GPS location.
+async function toJpeg(file) {
+  const src = await decode(file);
+  const w = src.naturalWidth || src.width;
+  const h = src.naturalHeight || src.height;
+  const scale = Math.min(1, MAX_SIDE / Math.max(w, h));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(w * scale);
+  canvas.height = Math.round(h * scale);
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(src, 0, 0, canvas.width, canvas.height);
+  if (src.close) src.close();
+  else URL.revokeObjectURL(src.src);
+  return new Promise((resolve, reject) => canvas.toBlob(
+    blob => (blob ? resolve(blob) : reject(new Error('Η επεξεργασία της εικόνας απέτυχε.'))),
+    'image/jpeg', JPEG_QUALITY));
+}
+
+// XHR instead of fetch for upload progress, which matters on mobile data.
+function send(blob, onProgress) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/images');
+    xhr.setRequestHeader('Content-Type', 'image/jpeg');
+    xhr.responseType = 'json';
+    xhr.upload.onprogress = e => e.lengthComputable && onProgress(Math.round(e.loaded / e.total * 100));
+    xhr.onload = () => {
+      const data = xhr.response || {};
+      if (xhr.status === 401) showLogin();
+      if (xhr.status >= 200 && xhr.status < 300) resolve(data);
+      else reject(new Error(data.error || 'Το ανέβασμα απέτυχε (' + xhr.status + ').'));
+    };
+    xhr.onerror = () => reject(new Error('Πρόβλημα σύνδεσης. Δοκίμασε ξανά.'));
+    xhr.send(blob);
+  });
+}
+
+async function uploadFiles(files) {
+  const queue = $('#queue');
+  const rows = files.map(file => {
+    const li = document.createElement('li');
+    li.innerHTML = '<span class="fname"></span><span class="state">Σε αναμονή</span>';
+    li.querySelector('.fname').textContent = file.name;
+    queue.appendChild(li);
+    return li.querySelector('.state');
+  });
+  let done = 0;
+  // Last file first, so after prepending they appear in the order they were picked.
+  for (let i = files.length - 1; i >= 0; i--) {
+    const state = rows[i];
+    try {
+      state.textContent = 'Επεξεργασία…';
+      const blob = await toJpeg(files[i]);
+      state.textContent = 'Ανέβασμα 0%';
+      images = (await send(blob, pct => { state.textContent = 'Ανέβασμα ' + pct + '%'; })).images;
+      render();
+      state.textContent = 'Έτοιμο';
+      state.classList.add('ok');
+      done++;
+    } catch (err) {
+      state.textContent = err.message;
+      state.classList.add('bad');
+    }
+  }
+  if (done) toast(done === 1 ? 'Η φωτογραφία προστέθηκε' : done + ' φωτογραφίες προστέθηκαν');
+  setTimeout(() => queue.querySelectorAll('.ok').forEach(s => s.parentElement.remove()), 4000);
+}
+
+$('#fileInput').addEventListener('change', e => {
+  const files = [...e.target.files];
+  e.target.value = '';
+  if (files.length) uploadFiles(files);
+});
+
+// --- session --------------------------------------------------------------
+
+$('#loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.disabled = true;
+  $('#loginErr').textContent = '';
+  try {
+    await api('login', jsonBody('POST', { password: $('#pw').value }));
+    $('#pw').value = '';
+    await loadGallery();
+  } catch (err) {
+    $('#loginErr').textContent = err.message;
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+$('#logoutBtn').addEventListener('click', async () => {
+  await api('logout', { method: 'POST' }).catch(() => {});
+  images = [];
+  showLogin();
+});
+
+loadGallery();
+</script>
 </body>
 </html>
